@@ -1,0 +1,25 @@
+/** Call-to-Action styles */
+.cta {
+	display: flex;
+	justify-content: center;
+	padding: 2rem;
+	//background: $accent;
+	background: linear-gradient(to bottom, $accent, $accent-hover);
+	border-top: 3px solid $accent-hover;
+	border-bottom: 3px solid $accent-hover;
+    box-shadow: 0 0 21px rgba(36,36,36,.31);
+
+	a {
+		display: inline-block;
+		color: white;
+	    text-decoration: none;
+	    border: 1px solid white;
+	    padding: 1rem;
+	    transition: all 0.2s ease-in-out;
+
+	    &:hover {
+	    	background: white;
+	    	color: $content-color;
+	    }
+	}
+}

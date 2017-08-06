@@ -99,7 +99,7 @@ gulp.task('scripts-browsersync', function() {
       .pipe(concat('csc.dist.js'))
       .pipe(uglify())
       .pipe(sourcemaps.write())
-      .pipe(gulp.dest('assets/js/min'))
+      .pipe(gulp.dest('assets/js/min/'))
       .pipe(reload({stream: true}));
 });
 

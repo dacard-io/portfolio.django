@@ -1,29 +1,29 @@
 /** Boilerplate Stylesheet entrypoint **/
 
-// Include Abstracts
-@import 'abstracts/variables';
-@import 'abstracts/helpers';
+// Include proprietary framework
+@import 'base/variables'; // Variables are loaded first to be used across other partials/sass files
 
-// Include Vendors (Bootstrap, etc.) - I won't include Bootstrap for this
-// @import 'vendors/bootstrap'
-
-// Import Base
-@import 'base/reset';
-@import 'base/typography';
 @import 'base/framework';
+@import 'base/theme';
 
-// Include Layout
-@import 'layout/navigation';
-@import 'layout/footer';
-@import 'layout/sidebar';
-@import 'layout/forms';
-
-// Include Components
-@import 'components/animations';
+// Include Seperate components
+@import 'components/nav';
+@import 'components/sections';
 @import 'components/buttons';
 @import 'components/hero';
+@import 'components/project_blocks';
+@import 'components/info_blocks';
+@import 'components/cta';
+@import 'components/tech';
+@import 'components/footer';
+@import 'components/pushmenu';
+@import 'components/animations';
 
-// Include Pages
-@import 'pages/home';
+// Include Seperate page styles
+@import 'pages/homepage';
+@import 'pages/projects';
+@import 'pages/about';
+@import 'pages/resume';
 
-// Include Themes (Like admin, dark, etc. This would be for larger projects)
+// Responsive styles load last so they don't get overriden
+@import 'base/mobile';

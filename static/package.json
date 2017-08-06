@@ -9,6 +9,7 @@
   "author": "David Cardoso",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.18.13",
     "del": "^2.2.0",
     "es6-promise": "^3.1.2",
     "gulp": "^3.9.0",

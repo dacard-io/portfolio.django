@@ -1,0 +1,57 @@
+/**
+* RESPONSIVE STYLESHEET
+**/
+$xl-width: 1400px;
+$lg-width: 1200px;
+$md-width: 1024px;
+$sm-width: 792px;
+$xs-width: 568px;
+
+
+@media (max-width: $xl-width), (min-width: $xl-width) {
+	.container {
+		width: 70%;
+		max-width: 70%;
+	}
+}
+@media (max-width: $lg-width) {
+	.container {
+		width: 80%;
+		max-width: 80%;
+	}
+}
+@media (max-width: $md-width) {
+	body {
+		font-size: 12px;
+	}
+	.container {
+		width: 85%;
+		max-width: 85%;
+	}
+}
+@media (max-width: $sm-width) {
+	.container {
+		width: 95%;
+		max-width: 95%;
+	}
+	.home {
+		.section.projects {
+			padding: 2rem 0;
+			.project-search {
+				display: none;
+			}
+		}
+		.section.info-blocks {
+			display: none;
+		}
+	}
+
+	.project-block {
+		width: 50%;
+	}
+}
+@media (max-width: $xs-width) {
+	.project-block {
+		width: 100%;
+	}
+}

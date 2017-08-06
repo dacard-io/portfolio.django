@@ -1,0 +1,35 @@
+/**
+* Footer
+**/
+
+.footer {
+	display: flex;
+	justify-content: center;
+	padding: .5rem 0;
+
+	color: #fff;
+
+	.container {
+		display: flex;
+	}
+
+	a {
+		margin: 1rem;
+		display: inline;
+		color: #fff;
+		text-decoration: none;
+		transition: all 0.2s linear;
+
+		&:hover {
+			color: $accent;
+		}
+	}
+	.left-col {
+		//display: flex;
+		justify-content: center;
+	}
+	.right-col {
+		//display: flex;
+		justify-content: center;
+	}
+}

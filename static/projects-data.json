@@ -1,0 +1,20 @@
+{	
+	"projects": [
+		{
+			"key": "rview",
+		    "name": "RView",
+		    "tag": "Javascript",
+		    "description": "A minimal and distraction-free Reddit viewer. Features easy subreddit browsing, media/text views, and current browser state saving.",
+		    "tech": "HTML5, CSS3/SASS, Bootstrap 3, Font Awesome, PrettyPhoto, Javascript/JQuery, Node.js, React, Webpack",
+		    "link": "http://davidcardoso.org/projects/react/rview/index.html"
+		},
+		{
+			"key": "lindgren",
+		    "name": "Lindgren-Pitman",
+		    "tag": "e-Commerce",
+		    "description": "e-Commerce project using",
+		    "tech": "Prestashop",
+		    "link": "//lindgren-pitman.com"
+		}
+	]
+}

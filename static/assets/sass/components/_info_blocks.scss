@@ -1,0 +1,38 @@
+.section.info-blocks {
+	margin: 0;
+	display: flex;
+	justify-content: center;
+
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.block {
+		display: flex;
+		flex-grow: 1;
+		justify-content: center;
+		align-items: center;
+		color: $content-color;
+		//background: $accent;
+		border-top: 1px solid #e0e0e0;
+		border-left: 1px solid #e0e0e0;
+		border-bottom: 1px solid #e0e0e0;
+		//border-top: 3px solid $accent;
+		padding: 1rem;
+		text-decoration: none;
+		transition: all 0.2s linear;
+
+		&:hover {
+			background: #f9f9f9;
+			color: $accent;
+		}
+
+		&:first-child {
+			//border-radius: 0 0 0 15px;
+		}
+		&:last-child {
+			//border-radius: 0 0 15px 0;
+			border-right: 1px solid #e0e0e0;
+		}
+	}
+}
