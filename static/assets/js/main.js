@@ -154,8 +154,9 @@ project_container.packery(isotope_properties);
 // Push menu button action
 $('.push-menu-button').on("mousedown", function(){
   console.log("Side menu opened")
-  $('body').toggleClass('menu-open');
+  $('.site-container').toggleClass('menu-open');
   $('.push-menu').toggleClass('open'); 
+  $('body').toggleClass('no-v-scroll'); 
 })
   
 }); // End of window loaded (Comes after Doc ready)

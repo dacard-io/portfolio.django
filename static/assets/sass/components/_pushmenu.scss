@@ -1,8 +1,9 @@
-body {
+.site-container {
 	transition: all 0.5s ease-in-out;
 	&.menu-open {
 		// Move DOM entirely to the right for the push menu
-		transform: translate3d(-50%, 0, 0);
+		transform: translate3d(-40%, 0, 0);
+		overflow: hidden !important;
 	}
 }
 
@@ -10,10 +11,10 @@ body {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 50%;
+	width: 40%;
 	height: 100vh;
 	margin: 0 0 0 100%;
-	transition: all 0.2s ease-in;
+	transition: all 0.5s ease-in-out;
 	overflow: auto;
 	background: white;
 
@@ -21,6 +22,49 @@ body {
 		// Add open styling hero
 		box-shadow: 1px 1px 5px 1px rgba(0,0,0,1);
 		// Put menu in view by removing margin
-	    //margin: 0 0 0 100%;
+	    margin: 0 0 0 60%;
+	}
+
+	/* General Styling */
+	padding: 1rem 2rem; 
+
+	h1 {
+		margin: 0;
+		font-weight: 100;
+		font-size: 2.5em;
+	}
+	h2 {
+		margin: 0;
+		font-weight: 700;
+		font-size: 1.5em;
+		color: $accent;
+		text-transform: uppercase;
+	}
+	h3 {
+		margin: 0;
+		font-weight: 700;
+		font-size: 1.25em;
+	}
+	.group {
+		margin: 1rem 0;
+	}
+	.entry {
+		margin: 2rem 0;
+
+		h4 {
+			margin: 1rem 0 0.5rem;
+			font-size: 1.15em;
+		}
+		p {
+			margin: 0;
+			padding-right: 2rem;
+		}
+
+		ul {
+			li {
+				margin: 0.5rem 0;
+				padding-right: 2rem;
+			}
+		}
 	}
 }
