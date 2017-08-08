@@ -21,9 +21,9 @@
 
 // Include Seperate page styles
 @import 'pages/homepage';
-@import 'pages/projects';
+@import 'pages/blog';
+@import 'pages/post';
 @import 'pages/about';
-@import 'pages/resume';
 
 // Responsive styles load last so they don't get overriden
 @import 'base/mobile';
