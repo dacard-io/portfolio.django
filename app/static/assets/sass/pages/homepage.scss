@@ -1,0 +1,154 @@
+.home {
+	.hero {
+		/* Homepage specific hero styles */
+		//background: linear-gradient(to right, rgba(127,186,220,.8),rgba(240,170,20,.8)),url(../images/hero.jpg);
+
+	    p {
+	    	display: inline-block;
+	    	border: 1px solid #fff;
+	    	color: white;
+	    	padding: .5rem;
+	    }
+	    a {
+	    	color: white;
+	    }
+	}
+
+	.section.info-blocks {
+		margin: 0;
+		display: flex;
+		justify-content: center;
+
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.block {
+			display: flex;
+			flex-grow: 1;
+			justify-content: center;
+			align-items: center;
+			color: white;
+			//background: $accent;
+			border-top: 1px solid rgba(255,255,255,0.3);
+			border-left: 1px solid rgba(255,255,255,0.3);
+			border-bottom: 1px solid rgba(255,255,255,0.3);
+			//border-top: 3px solid $accent;
+			padding: 1rem;
+
+			&:first-child {
+				//border-radius: 0 0 0 15px;
+			}
+			&:last-child {
+				//border-radius: 0 0 15px 0;
+				border-right: 1px solid rgba(255,255,255,0.3);
+			}
+		}
+	}
+
+	.section.projects {
+		display: flex;
+		justify-content: center;
+
+		margin: 0;
+		padding: 4rem 0;
+		background: transparent;
+
+		h2 {
+			margin: 0;
+			color: #fff;
+		}
+
+		.projects-row {
+			display: flex;
+			flex-wrap: wrap;
+
+			&.full-size {
+				.project-block {
+					width: 100%;
+				}
+			}
+		}
+
+		.right-col {
+			align-items: center;
+			justify-content: flex-end;
+		}
+
+		.project-search {
+			display: flex;
+			flex-grow: 1;
+			padding: 0 .5rem;
+			border-radius: 5px;
+			border: none;
+			height: 30px;
+		}
+		.tag-filter-info {
+			margin: 0;
+			color: #fff;
+		}
+		.tag-select {
+			background: white;
+			height: 30px;
+			margin-right: 1rem;
+			border-radius: 0;
+			border: none;
+		}
+
+		.projects-loading {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+			margin: 2rem 0;
+			transition: all 0.2s linear;
+
+			i.fa {
+				color: $accent;
+				font-size: 5em;
+			}
+
+			@keyframes spinner {
+			  to {transform: rotate(360deg);}
+			}
+			i.fa-refresh {
+				animation: spinner 2s ease-in-out infinite;
+			}
+
+			span {
+				margin-top: 1rem;
+			}
+		}
+		
+	}
+
+}
+
+.top-nav {
+	position: absolute;
+	top: 0;
+	left: 0;
+	justify-content: center;
+	width: 100%;
+
+	.container {
+		text-align: right;
+	}
+	a {
+		margin-top: 0;
+		border-radius: 0px 0px 5px 5px;
+		text-decoration: none;
+	}
+	.social-link {
+		margin-right: 1rem;
+		&:hover {
+			color: $accent;
+		}
+	}
+}
+
+.noresults {
+	display: none;
+	text-align: center;
+	width: 100%;
+}
