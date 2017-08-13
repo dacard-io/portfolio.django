@@ -11,9 +11,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 import os
-from secrets import * # Import key
-
-SECRET_KEY = 'a*+9e961ycq%*a-()*g#8n4+0%l8uz3q6899qcqjgt3n&eebu_'
+from app.secrets import * # Import secret settings and key (Ugh, had to directly import from app dir)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
