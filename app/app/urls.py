@@ -20,9 +20,7 @@ from django.views.generic import TemplateView
 from . import views # import views.py from this app
 
 urlpatterns = [
+    url(r'^$', views.index, name='index'), # Leaving the url as 
     url(r'^manager/', admin.site.urls),
-    #url(r'^', TemplateView.as_view(template_name="index.html")),
-    url(r'^', views.index, name='index'),
-    #url(r'^blog/', include('blog.urls')),
-    #url(r'^projects/', include('projects.urls'))
+    url(r'^blog/', include('blog.urls')) # Include urls from blog app
 ]

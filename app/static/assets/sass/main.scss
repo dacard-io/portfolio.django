@@ -12,14 +12,18 @@
 @import 'components/buttons';
 @import 'components/hero';
 @import 'components/project_blocks';
+@import 'components/info_blocks';
 @import 'components/cta';
 @import 'components/tech';
 @import 'components/footer';
-
+@import 'components/pushmenu';
 @import 'components/animations';
 
 // Include Seperate page styles
 @import 'pages/homepage';
+@import 'pages/blog';
+@import 'pages/post';
+@import 'pages/about';
 
 // Responsive styles load last so they don't get overriden
 @import 'base/mobile';

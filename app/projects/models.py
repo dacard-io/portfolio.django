@@ -24,15 +24,17 @@ class Project(models.Model):
 	description = models.TextField(max_length=256, help_text="Describe your project. (256 character limit)")
 	stack = models.CharField(max_length=256, blank=True, help_text="Describe your project's used tech stack. (256 character limit)")
 	link = models.CharField(max_length=256, help_text="Enter the link to your project. (256 character limit)")
-	image = models.ImageField(upload_to='static/uploads/projects') # There is an image upload field. Niiiice.
+	#image = models.ImageField(upload_to='static/uploads/projects') # There is an image upload field. Niiiice.
 	enabled = models.BooleanField('enabled')
 
 	# A routine to show the image easily (Like in the admin panel)
+	'''
 	def admin_thumbnail(self):
 		return format_html('<img src="%s%s" width="150" height="auto" />' % (PROJECT_ROOT, self.image))
 
 	admin_thumbnail.short_description = 'Project Image' # admin_thumbnail won't work without these
 	admin_thumbnail.allow_tags = True # Allow tags to be rendered properly
+	'''
 
 	# To prevent outputting <Question: Question Object> which is not helpful for examination, we can fix that by
 	# adding this __str__ method to the class to actually see whats in the object

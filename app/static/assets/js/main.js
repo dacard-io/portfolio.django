@@ -3,6 +3,7 @@
 // Document Ready
 $(function() {
 
+console.log("Document Ready");
 
 //*** Smooth scroll
 $('a[href*="#"]:not([href="#"])').click(function() {
@@ -16,6 +17,7 @@ if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && lo
     return false;
   }
 }
+
 });
   
 $(window).resize(function() {
@@ -148,5 +150,13 @@ var waves = new SineWaves({
 });
   
 project_container.packery(isotope_properties);
+
+// Push menu button action
+$('.push-menu-button').on("mousedown", function(){
+  console.log("Side menu opened")
+  $('.site-container').toggleClass('menu-open');
+  $('.push-menu').toggleClass('open'); 
+  $('body').toggleClass('no-v-scroll'); 
+})
   
 }); // End of window loaded (Comes after Doc ready)
