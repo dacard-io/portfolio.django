@@ -105,6 +105,14 @@ USE_L10N = True
 
 USE_TZ = True
 
+# TinyMCE settings
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': "advanced", # default value
+    'relative_urls': False, # default value
+    'width': '100%',
+    'height': 500
+}
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/

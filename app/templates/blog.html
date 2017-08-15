@@ -68,6 +68,7 @@
                 <div class="posts-row">
                     <!-- Projects begin -->
                     {% for post in recent_posts %}
+                    {% if post.published %}
                     <div class="post-block" data-tag="{{ post.tag }}">
                         <div class="post-container">
                             <a class="post-title" href="{{ post.get_absolute_url }}"><h3>{{ post.title }}</h3></a>
@@ -88,9 +89,9 @@
                                     {% endif %}
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
+                    {% endif %}
                     {% endfor %}
                     <!-- Projects end -->
                 </div>
