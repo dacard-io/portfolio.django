@@ -5,7 +5,7 @@ from .models import Post
 
 # Make customizations like filters and fieldsets to make browsing in the manager easier
 class PostAdmin(admin.ModelAdmin):
-	list_display = ['post_title','post_description','pub_date']
+	list_display = ['title','description','pub_date']
 
 # Register choice model to be viewed by Django Admin panel
 admin.site.register(Post, PostAdmin)

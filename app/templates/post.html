@@ -1,30 +1,14 @@
 <!doctype html>
+
+{% load static %}
+
 <html class="no-js" lang="en">
 
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Post | Dacard.io</title>
-        <meta name="description" content="I'm David, a web developer and programmer located in South Florida. I enjoy building meaningful web and app experiences.">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>{{ post.title }} | Dacard.io</title>
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <meta name="msapplication-TileImage" content="tile.png">
-        <!-- Place favicon.ico in the root directory -->
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-
-        <link rel="stylesheet" href="assets/css/vendor/normalize.css">
-        <link rel="stylesheet" href="assets/css/vendor/html5_boiler/main.css">
-
-        <!-- Your stylesheets below this line -->
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
-
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,100i,200,200i,300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-
-        <!--<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>-->
+        {% include "partials/meta.html" %}
+        {% include "partials/stylesheets.html" %}
     </head>
 
     <body class="page post">
@@ -32,79 +16,20 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div class="push-menu resume-section">
-            <h1>David Cardoso</h1>
-            <h2>Web Developer</h2>
-            <hr/>
-
-            <div class="group">
-                <h3>Experience</h3>
-                <div class="entry">
-                    <h4>Web Developer @ <i>Advantage Services</i> &mdash; Oct. 2016 - Present</h4>
-                    <p>Responsible for implementing designs and solutions for client websites in Coldfusion, and with the proprietary company CMS. Provides exemplary and effective customer support with both the ConnectWise ticketing system and phone support. Responsible for managing e-Commerce solutions and strategies for clients which includes the use of the Prestashop and Shopify platforms. Responsible for implementing Sharepoint Online solutions for clients.</p>
-                </div>
-                <div class="entry">
-                    <h4>Web Developer @ <i>Bricks and Mortar</i> &mdash; Oct. 2016 - Present</h4>
-                    <p>Responsible for developing custom themes and plugins for Wordpress. Responsible for developing custom extensions and themes for the Magento e-Commerce platform. Provided general assistance around the Bricks and Mortar office.</p>
-                </div>
-            </div>
-            <div class="group">
-                <h3>Education</h3>
-                <div class="entry">
-                    <h4>Associate of Arts Degree @ <i>Broward College</i> &mdash; May 2015</h4>
-                </div>
-                <div class="entry">
-                    <h4>High School Diploma @ <i>Monarch High School</i> &mdash; June 2012</h4>
-                </div>
-            </div>
-            <div class="group">
-                <h3>Proficiencies</h3>
-                <small>(Click skill to view related project)</small>
-                <div class="entry">
-                    <h4>Associate of Arts Degree @ <i>Broward College</i> &mdash; May 2015</h4>
-                </div>
-                <div class="entry">
-                    <h4>High School Diploma @ <i>Monarch High School</i> &mdash; June 2012</h4>
-                </div>
-            </div>
-            <div class="group">
-                <h3>Achievements</h3>
-                <div class="entry">
-                    <ul>
-                        <li>While working at Advantage Services, helped improve the workflow of the web department by making a proposal to switch from FTP deployment, to collaboration with Git, and using Microsoft Team Services for deployment on larger projects.</li>
-                        <li>While working at Advantage Services, helped migrate a large e-commerce shop facing removal of their PCI compliance, by migrating to a new version of Prestashop, revamping their design, migrating their data, and preserving their search rank using 301 redirects.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        {% include "partials/resume.html" %}
 
         <div class="site-container"> <!-- To get push menu working properly -->
         
-        <nav class="navigation">
-            <div class="container">
-                <div class="row space-between">
-                    <a href="./index.html" class="site-logo"><img src="assets/images/logo.png"/></a>
-                    <ul class="main-menu">
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./index.html#projects">Projects</a></li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <!--<li><a href="#">Blog</a></li>-->
-                        <li><a href="#" class="push-menu-button">Resume</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <!--<li><a class="push-menu-button" href="#">MENU</a></li>-->
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        {% include "partials/navigation.html" %}
 
         <div class="hero small">
             <!-- Temporarily disable nav until more blog content is completed-->
             <div class="container hero-container">
                 <div class="row">
-                    <h1>A new front-end reddit client, Reddicast</h1>
+                    <h1>{{ post.title }}</h1>
                 </div>
-                <h2>A client for Reddit designed to look like a newspaper.</a></i></h2>
-                <div class="post-meta">Posted on August 7th, 2017</div>
+                <h2>{{ post.description }}</a></i></h2>
+                <div class="post-meta">Posted on {{ post.pub_date }} - August 7th, 2017</div>
             </div>
         </div>
 
@@ -114,24 +39,7 @@
                 <div class="post-content">
                     <!-- Post Content -->
 
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-                    <h4>Where does it come from?</h4>
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-                    <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-
-                    <h4>Why do we use it?</h4>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-
-                    <hr/>
-
-                    <h1>Header 1</h1>
-                    <h2>Header 2</h2>
-                    <h3>Header 3</h3>
-                    <h4>Header 4</h4>
-                    <h5>Header 5</h5>
-
-                    <img src="https://blackrockdigital.github.io/startbootstrap-clean-blog/img/post-sample-image.jpg" alt="Image here">
+                    {{ post.content|safe }}
 
                     <!-- End Post Content -->
                 </div>
@@ -143,62 +51,12 @@
             </div>
         </div>
 
-        <div class="footer">
-            <div class="container">
-                <div class="col fifty left-col">
-                    <p>© 2017 // Dacard.io</p>
-                </div>
-                <div class="col fifty right-col">
-                    <div class="row align-right">
-                    <a href="https://github.com/dacard-io" target="_blank">@github</a>
-                    <a href="https://www.linkedin.com/in/david-cardoso-b6559574/" target="_blank">@linkedin</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include "partials/footer.html" %}
 
         </div><!-- site-container end -->
 
+        {% include "partials/javascript.html" %}
 
-
-        <!-- JS Dependencies below -->
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        
-        <!-- Your JS Files -->
-        <!--<script src="assets/js/vendor/plugins.js"></script>-->
-        <script src="assets/js/packery.pkgd.min.js"></script>
-        <!-- I know the includes for a simple sine wave are ridiculous, but I really want one! -->
-        <script src="assets/js/waves.min.js"></script>
-        <!-- Main site script -->
-        <script src="assets/js/main.js"></script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='https://www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-        </script>
-
-        <script>
-        /**
-        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-        /*
-        var disqus_config = function () {
-        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-        */
-        (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://dacard-io.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-        </script>
     </body>
 
 </html>

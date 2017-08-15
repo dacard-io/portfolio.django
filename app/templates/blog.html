@@ -9,6 +9,7 @@
 
         {% include "partials/meta.html" %}
         {% include "partials/stylesheets.html" %}
+
     </head>
 
     <body class="page blog">
@@ -66,43 +67,31 @@
 
                 <div class="posts-row">
                     <!-- Projects begin -->
-
-                    <div class="post-block" data-tag="web-app">
+                    {% for post in recent_posts %}
+                    <div class="post-block" data-tag="{{ post.tag }}">
                         <div class="post-container">
-                            <a class="post-title" href="./post.html"><h3>A new front-end reddit client, Reddicast</h3></a>
-                            <p class="post-description">A client for Reddit designed to look like a newspaper, making content viewing faster. Built with <span>Node.js, React.js, Webpack, SASS, Waypoints, Reddit REST API, Amazon EC2</span>.</p>
+                            <a class="post-title" href="{{ post.get_absolute_url }}"><h3>{{ post.title }}</h3></a>
+                            <p class="post-description">{{ post.description }}</p>
                             <div class="row">
-                                <div class="post-meta">Posted on August 7th, 2017 &mdash; <div class="post-tag"><p><i class="fa fa-tag"></i>&nbsp;&nbsp;Project Log</p></div></div>
-                                
+                                <div class="post-meta">Posted on {{ post.pub_date }} &mdash; 
+                                    {% if post.tag == "uncategorized" %}
+                                        <div class="post-tag"><p><i class="fa fa-tag"></i>&nbsp;&nbsp;Uncategorized</p></div>
+                                    {% endif %}
+                                    {% if post.tag == "case-studies" %}
+                                        <div class="post-tag"><p><i class="fa fa-tag"></i>&nbsp;&nbsp;Case Studies</p></div>
+                                    {% endif %}
+                                    {% if post.tag == "tutorials" %}
+                                        <div class="post-tag"><p><i class="fa fa-tag"></i>&nbsp;&nbsp;Tutorials</p></div>
+                                    {% endif %}
+                                    {% if post.tag == "project-logs" %}
+                                        <div class="post-tag"><p><i class="fa fa-tag"></i>&nbsp;&nbsp;Project Logs</p></div>
+                                    {% endif %}
+                                </div>
                             </div>
                             
                         </div>
                     </div>
-
-                    <div class="post-block" data-tag="web-app">
-                        <div class="post-container">
-                            <a class="post-title" href="./post.html"><h3>A new front-end reddit client, Reddicast</h3></a>
-                            <p class="post-description">A client for Reddit designed to look like a newspaper, making content viewing faster. Built with <span>Node.js, React.js, Webpack, SASS, Waypoints, Reddit REST API, Amazon EC2</span>.</p>
-                            <div class="row">
-                                <div class="post-meta">Posted on August 7th, 2017 &mdash; <div class="post-tag"><p><i class="fa fa-tag"></i>&nbsp;&nbsp;Project Log</p></div></div>
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div class="post-block" data-tag="web-app">
-                        <div class="post-container">
-                            <a class="post-title" href="./post.html"><h3>A new front-end reddit client, Reddicast</h3></a>
-                            <p class="post-description">A client for Reddit designed to look like a newspaper, making content viewing faster. Built with <span>Node.js, React.js, Webpack, SASS, Waypoints, Reddit REST API, Amazon EC2</span>.</p>
-                            <div class="row">
-                                <div class="post-meta">Posted on August 7th, 2017 &mdash; <div class="post-tag"><p><i class="fa fa-tag"></i>&nbsp;&nbsp;Project Log</p></div></div>
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
-
+                    {% endfor %}
                     <!-- Projects end -->
                 </div>
             </div>
