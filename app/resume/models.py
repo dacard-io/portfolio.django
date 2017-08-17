@@ -21,8 +21,8 @@ class Institution(models.Model):
 
 class Skillset(models.Model):
 	name = models.CharField(max_length=150,help_text="Name of skillset (i.e, Front-end/Services)")
-	skills = models.CharField(max_length=150,help_text="List your skills, seperate with commas. Just a regular text area.")
+	skills = models.TextField(help_text="List your skills, seperate with commas. Just a regular text area.")
 	# One to Many relationship to skills for linking? Not for now I guess
 
 class Achievement(models.Model):
-	item = models.TextField(max_length=150,help_text="Information about the achievement")
+	item = models.TextField(help_text="Information about the achievement")
