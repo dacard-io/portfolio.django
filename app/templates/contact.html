@@ -1,0 +1,65 @@
+<!doctype html>
+
+{% load static %}
+
+<html class="no-js" lang="en">
+
+    <head>
+        <title>Contact | Dacard.io</title>
+
+        {% include "partials/meta.html" %}
+        {% include "partials/stylesheets.html" %}
+
+    </head>
+
+    <body class="page blog">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        {% include "partials/resume.html" %}
+
+        <div class="site-container"> <!-- To get push menu working properly -->
+        
+        {% include "partials/navigation.html" %}
+
+        <div class="hero small">
+            <!-- Temporarily disable nav until more blog content is completed-->
+            <div class="container hero-container">
+                <div class="row">
+                    <h1>Contact.</h1>
+                    <div class="waves-overlay">
+                        <canvas id="waves"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section posts" id="posts">
+            <div class="container">
+                <div class="row">
+                    <div class="col fifty">
+                        <h2>Get in touch.</h2>
+                        <hr/>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="col fifty">
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form }}
+                            <input type="submit" value="Send" />
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        {% include "partials/footer.html" %}
+
+        </div><!-- site-container end -->
+
+        {% include "partials/javascript.html" %}
+    </body>
+
+</html>
