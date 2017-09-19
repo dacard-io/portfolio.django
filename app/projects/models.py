@@ -11,6 +11,8 @@ class Project(models.Model):
 
 	title = models.CharField(max_length=60,help_text="60 character limit")
 
+	order = models.PositiveIntegerField(default=0, blank=False, null=False) #adminSortable field
+
 	tag_choices = (
 		('uncategorized', 'Uncategorized'),
 		('web-app', 'Web Apps'),
@@ -36,7 +38,14 @@ class Project(models.Model):
 	admin_thumbnail.allow_tags = True # Allow tags to be rendered properly
 	'''
 
+	# For sorting in admin
+	class Meta(object):
+		ordering = ['order']
+
 	# To prevent outputting <Question: Question Object> which is not helpful for examination, we can fix that by
 	# adding this __str__ method to the class to actually see whats in the object
-	def __str__(self):
+	#def __str__(self):
+	#	return self.title
+
+	def __unicode__(self):
 		return self.title

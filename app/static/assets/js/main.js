@@ -3,7 +3,7 @@
 // Document Ready
 $(function() {
 
-console.log("Document Ready");
+//console.log("Document Ready");
 
 //*** Smooth scroll
 $('a[href*="#"]:not([href="#"])').click(function() {

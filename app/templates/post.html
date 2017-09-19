@@ -9,6 +9,9 @@
 
         {% include "partials/meta.html" %}
         {% include "partials/stylesheets.html" %}
+
+        <!-- Include Prism for syntax highlighting -->
+        <link rel="stylesheet" href="{% static 'assets/css/prism.css' %}">
     </head>
 
     <body class="page post">
@@ -29,7 +32,7 @@
                     <h1>{{ post.title }}</h1>
                 </div>
                 <h2>{{ post.description }}</a></i></h2>
-                <div class="post-meta">Posted on {{ post.pub_date }} - August 7th, 2017</div>
+                <div class="post-meta">Posted on {{ post.pub_date }}</div>
             </div>
         </div>
 
@@ -56,6 +59,7 @@
         </div><!-- site-container end -->
 
         {% include "partials/javascript.html" %}
+        <script src="{% static 'assets/js/prism.js' %}"></script>
 
     </body>
 

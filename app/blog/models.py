@@ -16,7 +16,7 @@ class Post(models.Model):
 	) # Remember, the first parameter is set in the DB. The second is the one to appear in labels
 	tag = models.CharField(max_length=60, choices=tag_choices, default="uncategorized", help_text="Tag your post for categorization.")
 
-	content = tinymce_models.HTMLField(blank=True)
+	content = tinymce_models.HTMLField(blank=True, help_text='To use Prism.js for code: <pre><code class="language-css">p { color: red }</code></pre>')
 	pub_date = models.DateTimeField('date published')
 	published = models.BooleanField('enabled')
 

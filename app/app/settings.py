@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tinymce'
+    'tinymce',
+    'adminsortable2'
 ]
 
 MIDDLEWARE = [
@@ -114,6 +115,8 @@ TINYMCE_DEFAULT_CONFIG = {
     'width': '100%',
     'height': 500
 }
+
+# Django Admin Sortable settings
 
 
 # Static files (CSS, JavaScript, Images)

@@ -23,5 +23,5 @@ urlpatterns = [
     url(r'^$', views.index, name='index'), # Leaving the url as 
     url(r'^manager/', admin.site.urls),
     url(r'^blog/', include('blog.urls')), # Include urls from blog app
-    url(r'^contact/', views.contact, name='contact')
+    #url(r'^contact/', views.contact, name='contact') # Add contact form later
 ]

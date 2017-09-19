@@ -1,4 +1,5 @@
 from django.contrib import admin
+from adminsortable2.admin import SortableAdminMixin
 
 # Register your models here.
 from .models import Job
@@ -6,13 +7,13 @@ from .models import Institution
 from .models import Skillset
 from .models import Achievement
 
-class JobAdmin(admin.ModelAdmin):
+class JobAdmin(SortableAdminMixin, admin.ModelAdmin):
 	list_display = ['position', 'company', 'start_date', 'end_date', 'current', 'enabled']
-class InstitutionAdmin(admin.ModelAdmin):
+class InstitutionAdmin(SortableAdminMixin, admin.ModelAdmin):
 	list_display = ['certificate', 'name', 'end_date']
-class SkillsetAdmin(admin.ModelAdmin):
+class SkillsetAdmin(SortableAdminMixin, admin.ModelAdmin):
 	list_display = ['name', 'skills']
-class AchievementAdmin(admin.ModelAdmin):
+class AchievementAdmin(SortableAdminMixin, admin.ModelAdmin):
 	list_display = ['item']
 
 # Register model to be viewed by Django Admin panel
