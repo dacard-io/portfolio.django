@@ -151,4 +151,9 @@
 		}
 
 	}
+
+	// Styling for post code (Prism.js)
+	:not(pre) > code[class*="language-"], pre[class*="language-"] {
+		border: 1px solid #e0e0e0;
+	}
 }
