@@ -26,10 +26,12 @@
         {% include "partials/navigation.html" %}
 
         <div class="hero small">
-            <!-- Temporarily disable nav until more blog content is completed-->
             <div class="container hero-container">
                 <div class="row">
                     <h1>{{ post.title }}</h1>
+                    <div class="waves-overlay">
+                        <canvas id="waves"></canvas>
+                    </div>
                 </div>
                 <h2>{{ post.description }}</a></i></h2>
                 <div class="post-meta">Posted on {{ post.pub_date }}</div>

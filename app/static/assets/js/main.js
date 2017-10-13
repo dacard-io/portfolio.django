@@ -153,7 +153,6 @@ project_container.packery(isotope_properties);
 
 // Push menu button action
 $('.push-menu-button, #close-push-menu').on("mousedown", function(){
-  console.log("Side menu opened")
   $('.site-container').toggleClass('menu-open');
   $('.push-menu').toggleClass('open'); 
   $('body').toggleClass('no-v-scroll'); 
