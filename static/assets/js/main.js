@@ -3,7 +3,7 @@
 // Document Ready
 $(function() {
 
-console.log("Document Ready");
+//console.log("Document Ready");
 
 //*** Smooth scroll
 $('a[href*="#"]:not([href="#"])').click(function() {
@@ -152,8 +152,7 @@ var waves = new SineWaves({
 project_container.packery(isotope_properties);
 
 // Push menu button action
-$('.push-menu-button').on("mousedown", function(){
-  console.log("Side menu opened")
+$('.push-menu-button, #close-push-menu').on("mousedown", function(){
   $('.site-container').toggleClass('menu-open');
   $('.push-menu').toggleClass('open'); 
   $('body').toggleClass('no-v-scroll'); 
