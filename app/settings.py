@@ -25,7 +25,7 @@ SITE_URL = 'localhost:8000' # To be used throughout templates
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', 'dacard.io', '54.90.201.186', 'ec2-54-90-201-186.compute-1.amazonaws.com']
 
 
 # Application definition
