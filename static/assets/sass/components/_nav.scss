@@ -101,3 +101,21 @@
 .right-content {
 	flex-grow: 1;
 }
+
+.push-menu-button {
+	display: block;
+	background: linear-gradient(60deg, #ef9815, #d35600);
+    border: 2px solid #b27000;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 17px;
+    margin-left: 1rem;
+    width: 100%;
+    border-radius: 15px;
+    padding: 0 1rem !important;
+    transition: all 0.2s linear;
+
+    &:hover {
+    	background: linear-gradient(120deg, #ef9815, #d35600) !important;
+    }
+}

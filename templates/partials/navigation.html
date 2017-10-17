@@ -2,9 +2,8 @@
 <nav class="navigation">
     <div class="container">
         <div class="row space-between">
-            <a href="/" class="site-logo"><img src="{% static 'assets/images/logo.png' %}"/></a>
+            <a href="{% url 'index' %}" class="site-logo"><img src="{% static 'assets/images/logo.png' %}"/></a>
             <ul class="main-menu">
-                <li><a href="{% url 'index' %}">Home</a></li>
                 <!--<li><a href="{% url 'index' %}#projects">Projects</a></li>-->
                 <li><a href="{% url 'blog' %}">Blog</a></li>
                 <!--<li><a href="#">Blog</a></li>-->

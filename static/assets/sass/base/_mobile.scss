@@ -56,5 +56,9 @@ $xs-width: 568px;
 @media (max-width: $xs-width) {
 	.project-block {
 		width: 100%;
+		.project-info {
+			min-height: auto;
+	    	max-height: auto;
+	    }
 	}
 }
