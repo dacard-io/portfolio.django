@@ -46,6 +46,11 @@
         }
     }
 
+    .hero-container {
+        margin-left: unset; // Fixes issues with IE11 for some reason
+        margin-right: unset;
+    }
+
     // Smaller hero
     &.small {
         height: 300px;

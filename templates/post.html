@@ -72,6 +72,21 @@
         {% include "partials/javascript.html" %}
         <script src="{% static 'assets/js/prism.js' %}"></script>
 
+        <!-- Disqus -->
+        <script>
+        var disqus_config = function () {
+        this.page.url = 'http://dacard.io{% url 'blog' %}{{ post.permalink }}';
+        this.page.identifier = '{{ post.permalink }}';
+        };
+        
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://dacard-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+
         <!-- Schema.org -->
         <script type="application/ld+json">
         {
