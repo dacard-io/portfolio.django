@@ -6,8 +6,17 @@
 
     <head>
         <title>{{ post.title }} | Dacard.io</title>
+        <meta name="description" content="{{ post.description }}">
 
         {% include "partials/meta.html" %}
+
+        <!-- Open Graph Protocol (Facebook) -->
+        <meta property="og:url"                content="http://dacard.io{% url 'blog' %}{{ post.permalink }}" />
+        <meta property="og:type"               content="article" />
+        <meta property="og:title"              content="{{ post.title }}" />
+        <meta property="og:description"        content="{{ post.description }}" />
+        <meta property="og:image"              content="http://dacard.io/static/assets/images/logo.png" />
+
         {% include "partials/stylesheets.html" %}
 
         <!-- Include Prism for syntax highlighting -->
@@ -63,6 +72,47 @@
         {% include "partials/javascript.html" %}
         <script src="{% static 'assets/js/prism.js' %}"></script>
 
+        <!-- Schema.org -->
+        <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "Article",
+          "author": "David Cardoso",
+          "publisher": {
+                "@context" : "http://schema.org",
+                "@type" : "Organization",
+                "name": "Dacard.io",
+                "url" : "http://dacard.io",
+                "logo": {
+                  "@context": "http://schema.org",
+                  "@type": "ImageObject",
+                  "author": "David Cardoso",
+                  "contentLocation": "Coconut Creek, Florida",
+                  "contentUrl": "static/assets/images/logo.png",
+                  "url" : "http://dacard.io",
+                  "datePublished": "2017-10-23",
+                  "description": "Dacard.io Logo",
+                  "name": "Dacard.io Logo"
+                }
+            },
+          "name": "{{ post.title }}",
+          "headline": "{{ post.title }}",
+          "description": "{{ post.description }}",
+          "datePublished": "{{ post.pub_date }}",
+          "url": "http://dacard.io{% url 'blog' %}{{ post.permalink }}",
+          "image": {
+              "@context": "http://schema.org",
+              "@type": "ImageObject",
+              "author": "David Cardoso",
+              "contentLocation": "Coconut Creek, Florida",
+              "contentUrl": "static/assets/images/logo.png",
+              "url" : "http://dacard.io",
+              "datePublished": "2017-10-23",
+              "description": "Dacard.io Logo",
+              "name": "Dacard.io Logo"
+            }
+        }
+        </script>
     </body>
 
 </html>
