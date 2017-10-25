@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tinymce',
+    'filebrowser',
     'adminsortable2'
 ]
 
@@ -128,3 +129,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 STATIC_URL = '/static/'
+
+# Filebrowser settings
+FILEBROWSER_DIRECTORY = 'static/uploads/'

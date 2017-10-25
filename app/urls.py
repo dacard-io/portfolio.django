@@ -18,10 +18,12 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic import TemplateView
 from . import views # import views.py from this app
+from filebrowser.sites import site # Filebrowser import
 
 urlpatterns = [
     url(r'^$', views.index, name='index'), # Leaving the url as 
     url(r'^manager/', admin.site.urls),
+    url(r'^manager/filebrowser/', include(site.urls)),
     url(r'^blog/', include('blog.urls')),
     # Include urls from blog app
     #url(r'^contact/', views.contact, name='contact') # Add contact form later
