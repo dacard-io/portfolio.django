@@ -1,5 +1,4 @@
 from django.contrib import admin
-from mce_filebrowser.admin import MCEFilebrowserAdmin
 
 # So this is where you add models so you can use them in Django's admin panel
 from .models import Post

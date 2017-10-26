@@ -1,10 +1,5 @@
-Django==1.11.6
-django-admin-sortable2==0.6.16
-django-filebrowser-no-grappelli==3.7.2
-django-tinymce==2.6.0
-Django-tinymce-filebrowser==0.2.1
-mysqlclient==1.3.10
-olefile==0.44
-Pillow==4.2.1
+-e git://github.com/django/django.git@fcb5dbfec0542faaa1b0adad754a1caf1bcd65e2#egg=Django
+esptool==1.3
+pyserial==3.3
 pytz==2017.2
-sorl-thumbnail==12.3
+virtualenv==15.1.0
