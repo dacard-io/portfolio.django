@@ -18,10 +18,12 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic import TemplateView
 from . import views # import views.py from this app
+from tinymce import urls # TinyMCE import
 from filebrowser.sites import site # Filebrowser import
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'), # Leaving the url as 
+    url(r'^$', views.index, name='index'), # Leaving the url as
+    url(r'^manager/tinymce/', include('tinymce.urls')),
     url(r'^manager/', admin.site.urls),
     url(r'^manager/filebrowser/', include(site.urls)),
     url(r'^blog/', include('blog.urls')),
