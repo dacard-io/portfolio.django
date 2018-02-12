@@ -23,7 +23,7 @@ SITE_URL = 'localhost:8000' # To be used throughout templates
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'dacard.io', 'www.dacard.io', '54.90.201.186', 'ec2-54-90-201-186.compute-1.amazonaws.com']
 
