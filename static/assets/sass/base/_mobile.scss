@@ -28,6 +28,44 @@ $xs-width: 568px;
 		width: 85%;
 		max-width: 85%;
 	}
+	.page.post {
+		.hero {
+			h1 {
+				font-size: 2em;
+			}
+			h2 {
+    			font-size: 1.35em;
+			}
+			.post-meta {
+				font-size: 1.1em;
+			}
+		}
+		// Styling for post content
+		/*
+		.post-content {
+			h2 {
+				font-size: 1.3em;
+				font-weight: 700;
+			}
+			h3 {
+				font-size: 1.15em;
+				font-weight: 700;
+			}
+			h4 {
+				font-size: 1em;
+				font-weight: 700;
+			}
+			h5 {
+				font-size: 1em;
+				font-weight: 700;
+			}
+			p {
+				font-size: 1em;
+				line-height: 1.15em;
+			}
+
+		}*/
+	}
 }
 @media (max-width: $sm-width) {
 	.container {
