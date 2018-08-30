@@ -1,0 +1,77 @@
+.page.blog {
+	section.search-area {
+		margin-top: -3rem;
+	}
+
+	section.posts {
+		padding: 4rem 0;
+
+		.post-card {
+			box-shadow: none;
+			transition: all 0.2s ease-in;
+			
+			// Override animated.css
+			&.animated {
+				animation-duration: 1.5s !important;
+			}
+
+			.post-title {
+				display: inline-block;
+				color: $blue;
+
+				&:hover {
+					color: #183c8a;
+				}
+			}
+			.post-description {
+				font-size: 1.15em;
+			}
+			.post-date {
+				font-weight: bold;
+				font-size: 1em;
+				&:before {
+					content: "\f138"; // Right Chevron Circle in Font Awesome
+					display: inline-block;
+				    font: normal normal normal 1.05em FontAwesome;
+					height: 1em;
+					width: 1em;
+					margin-right: 0.5rem;
+					color: $orange;
+				}
+			}
+			a.post-tag {
+				color: #787878;
+				font-weight: 600;
+
+				&:hover {
+					text-decoration: none;
+					color: $blue;
+				}
+			}
+		}
+	}
+}
+
+
+
+////////////////////////////////////
+/////////////RESPONSIVE/////////////
+////////////////////////////////////
+.page.blog {
+
+// XL breakpoint
+@media (max-width: $xl-breakpoint) {}
+
+// LG breakpoint
+@media (max-width: $lg-breakpoint) {}
+
+// MD breakpoint
+@media (max-width: $md-breakpoint) {}
+
+// SM breakpoint
+@media (max-width: $sm-breakpoint) {}
+
+// XS  breakpoint
+@media (max-width: $xs-breakpoint) {}
+
+}

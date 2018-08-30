@@ -1,0 +1,231 @@
+<!doctype html>
+
+{% load static %}
+
+<html class="no-js" lang="en">
+
+    <head>
+        <title>{{ project.title }} | Dacard.io</title>
+        <meta name="description" content="{{ post.description }}">
+
+        {% include "partials/meta.html" %}
+
+        <!-- Open Graph Protocol (Facebook) -->
+        <meta property="og:url"                content="http://dacard.io{% url 'projects' %}{{ project.permalink }}" />
+        <meta property="og:type"               content="article" />
+        <meta property="og:title"              content="{{ project.title }}" />
+        <meta property="og:description"        content="{{ project.description }}" />
+        <meta property="og:image"              content="http://dacard.io/static/assets/images/logo.png" />
+
+        {% include "partials/stylesheets.html" %}
+
+        {% include "partials/analytics.html" %}
+    </head>
+
+    <body class="page project">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        {% include "partials/navigation.html" %}
+
+        <main role="main"><!-- Main container -->
+
+        <section class="hero small">
+            <!-- Animated layers -->
+            <div class="gfx-layer one animated-hero heroFadeInLeft"><!-- Purple layer --></div>
+            <div class="overlay"></div><!-- Dark overlay to control background -->
+            <div class="gfx-layer two animated-hero heroFadeInRight"><!-- Orange layer --></div>
+            <div class="gfx-layer three animated-hero heroFadeInRight"><!-- Orange layer #2 --></div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>{{ project.title }}</h1>
+                        <p>{{ project.description }}</p>
+                        <a class="btn ghost-white" href="{% url 'projects' %}"><i class="fa fa-arrow-left"></i> Go Back</a>
+
+                        {% if project.link %}
+                        <a href="{{ project.link }}" target="_blank" class="btn ghost-white"><i class="fa fa-link"></i>&nbsp;&nbsp;Open Project</a>
+                        {% endif %}
+
+                        {% if project.source %}
+                        <a href="{{ project.source }}" target="_blank"  class="btn ghost-white"><i class="fa fa-code"></i>&nbsp;&nbsp;View Source</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wrap layout in row (I don't usually do this) -->
+        <div class="container"><!-- container -->
+        <div class="row"><!-- row -->
+
+          <div class="col-lg-6"><!-- col -->
+            <section class="gallery">
+                <div class="container">
+                    <div class="row">
+                        <!-- Featured Card -->
+                        <div class="col-12">
+                            <div class="card featured-card animated delay-short fadeInUp">
+                              <div class="card-body">
+                                
+                                <!-- RoyalSlider Project Carousel -->
+                                <div id="projectCarousel" class="royalSlider rsDefault">
+                                  {% for project_image in project_images %}
+                                  <a class="rsImg" data-rsw="400" data-rsh="500" data-rsbigimg="http://imt.boatwizard.com/images/1/17/89/6621789_20180219125028921_1_XLARGE.jpg" href="{{ site_url }}/{{ project_image.image }}">
+                                    <img width="96" height="72" class="rsTmb" src="https://imt.boatwizard.com/images/1/17/89/6621789_20180219125028921_1_MINI.jpg" alt="2010 82' VIKING CONVERTIBLE">
+                                  </a>
+                                  {% endfor %}
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+          </div><!-- col / end -->
+
+          <div class="col-12 col-lg-6"><!-- col -->
+            <section class="blurb">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-12"> 
+                            <h2>About Project</h2>    
+                            {{ project.content|safe }}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="blurb">
+              <div class="container">
+                  <div class="row align-items-center">
+                      <div class="col-12">
+                          <h2>Built With</h2>
+                          <ul>
+                              <li>{{ project.stack }}</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+            </section>
+          </div><!-- col / end -->
+
+        </div><!-- end / row -->
+        </div><!-- end / container -->
+
+        {% include "partials/footer.html" %}
+
+        </main><!-- end / Main container -->
+
+        {% include "partials/javascript.html" %}
+        <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+
+        <!-- Include Prism for syntax highlighting -->
+        <link rel="stylesheet" href="{% static 'assets/css/prism.css' %}">
+        <script src="{% static 'assets/js/plugins/prism.js' %}"></script>
+
+        <!-- RoyalSlider -->
+        <link rel="stylesheet" href="{% static 'assets/plugins/royalslider/royalslider.css' %}" />
+        <script src="{% static 'assets/plugins/royalslider/jquery.royalslider2.min.js' %}"></script>
+
+        <script>
+        $(document).ready(function(){
+
+          // Initialize RoyalSlider
+          var yachtCarousel = $('#projectCarousel').royalSlider({
+              fullscreen: {
+                  enabled: true,
+                  nativeFS: true
+              },
+              controlNavigation: 'thumbnails',
+              autoHeight: true,
+              //autoScaleSlider:true, //This with autoHeight causes issues
+              //autoScaleSliderWidth: 16,
+              //autoScaleSliderHeight: 9,
+              imageScaleMode:'none',
+              imageAlignCenter: false,
+              loop: true,
+              navigateByClick: false,
+              numImagesToPreload:2,
+              arrowsNav:true,
+              arrowsNavAutoHide: false,
+              arrowsNavHideOnTouch: true,
+              keyboardNavEnabled: true,
+              fadeinLoadedSlide: true,
+              globalCaption: false,
+              globalCaptionInside: false,
+          });    
+
+          // Waypoints for animations on this page specifcally.
+          $('section.blurb').waypoint(function(direction) {
+            if (direction === "down") {
+              $('section.blurb').find('img').addClass('animated').addClass('fadeInLeft');
+            }
+          }, {
+            offset: '100%' // Offset 100% is top of element
+          });
+          $('section.clients').waypoint(function(direction) {
+            if (direction === "down") {
+              $('section.clients').find('img').addClass('animated').addClass('fadeInUp');
+            }
+          }, {
+            offset: '100%' // Offset 100% is top of element
+          });
+
+          $('.project-card').waypoint(function(direction) {
+            if (direction === "down") {
+              $(this.element).addClass('animated').addClass('fadeIn');
+            }
+          }, {
+            offset: '100%' // Offset 100% is top of element
+          });
+
+        });
+        </script>
+
+        <!-- Schema.org -->
+        <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "Article",
+          "author": "David Cardoso",
+          "publisher": {
+                "@context" : "http://schema.org",
+                "@type" : "Organization",
+                "name": "Dacard.io",
+                "url" : "http://dacard.io",
+                "logo": {
+                  "@context": "http://schema.org",
+                  "@type": "ImageObject",
+                  "author": "David Cardoso",
+                  "contentLocation": "Coconut Creek, Florida",
+                  "contentUrl": "static/assets/images/logo.png",
+                  "url" : "http://dacard.io",
+                  "datePublished": "2017-10-23",
+                  "description": "Dacard.io Logo",
+                  "name": "Dacard.io Logo"
+                }
+            },
+          "name": "{{ project.title }}",
+          "headline": "{{ project.title }}",
+          "description": "{{ project.description }}",
+          "datePublished": "{{ project.pub_date }}",
+          "url": "http://dacard.io{% url 'projects' %}{{ project.permalink }}",
+          "image": {
+              "@context": "http://schema.org",
+              "@type": "ImageObject",
+              "author": "David Cardoso",
+              "contentLocation": "Coconut Creek, Florida",
+              "contentUrl": "static/assets/images/logo.png",
+              "url" : "http://dacard.io",
+              "datePublished": "2017-10-23",
+              "description": "Dacard.io Logo",
+              "name": "Dacard.io Logo"
+            }
+        }
+        </script>
+    </body>
+
+</html>

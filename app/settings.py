@@ -16,14 +16,14 @@ from app.secrets import * # Import secret settings and key (Ugh, had to directly
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SITE_URL = 'localhost:8000' # To be used throughout templates
+SITE_URL = '//localhost:8000' # To be used throughout templates
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'dacard.io', 'www.dacard.io', '54.90.201.186', 'ec2-54-90-201-186.compute-1.amazonaws.com']
 
@@ -69,7 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'resume.context_processors.resume_processor'
+                'app.context_processors.app_processor'
             ],
         },
     },

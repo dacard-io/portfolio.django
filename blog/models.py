@@ -10,9 +10,9 @@ class Post(models.Model):
 
 	tag_choices = (
 		('uncategorized', 'Uncategorized'),
-		('case-studies', 'Web Apps'),
 		('tutorials', 'Tutorials'),
-		('project-logs', 'Project Logs')
+		('project-logs', 'Project Logs'),
+		('case-studies', 'Case Studies')
 	) # Remember, the first parameter is set in the DB. The second is the one to appear in labels
 	tag = models.CharField(max_length=60, choices=tag_choices, default="uncategorized", help_text="Tag your post for categorization.")
 

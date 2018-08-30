@@ -1,23 +1,46 @@
+<!-- Partial / javascript -->
 {% load static %}
 
-<!-- Javascript dependencies (below fold) -->
+<!-- JS Dependencies below -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="{% static 'assets/js/vendor/plugins.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="{% static 'assets/js/vendor/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/plugins/jquery.waypoints.min.js' %}"></script>
 
-<!-- Your JS Files -->
-<script src="{% static 'assets/js/packery.pkgd.min.js' %}"></script>
-<!-- I know the includes for a simple sine wave are ridiculous, but I really want one! -->
-<script src="{% static 'assets/js/waves.min.js' %}"></script>
-<!-- Main site script -->
+<!-- Custom JS Scripts -->
 <script src="{% static 'assets/js/main.js' %}"></script>
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- Now using tag manager. Rendered unnecessary
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36605390-3"></script>
+<!-- Site-wide functionality -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-36605390-3');
+$(document).ready(function(){
+	$('.navbar .navbar-brand .logo').animate({'opacity': '0'}, 'slow', function(){
+		$(this).attr('src', '{% static "assets/images/logo_wht.png" %}'); // Change logo
+		$(this).animate({'opacity': '1'}, 'medium'); // Re-reveal logo
+	});
+
+	// Nav animation with waypoints!
+    $('section.hero').waypoint(function(direction) {
+    	console.log("Scrolling to nav")
+  		if (direction === "down") {
+        	$('.navbar').addClass('scrolled');
+        	// Cross-fade logos!
+        	$('.navbar .navbar-brand .logo').animate({'opacity': '0'}, 'fast', function(){
+				$(this).attr('src', '{% static "assets/images/logo.png" %}'); // Change logo
+				$(this).animate({'opacity': '1'}, 'fast'); // Re-reveal logo
+			});
+  		} else if (direction === "up") {
+      		$('.navbar').removeClass('scrolled');
+      		// Cross-fade images
+      		$('.navbar .navbar-brand .logo').animate({'opacity': '0'}, 'fast', function(){
+				$(this).attr('src', '{% static "assets/images/logo_wht.png" %}'); // Change logo
+				$(this).animate({'opacity': '1'}, 'fast'); // Re-reveal logo
+			}); 
+  		}
+    }, {
+  		offset: '-100px' // Offset 20px from top of body
+    });
+});
 </script>
--->
+
+<!-- end / Partial / javascript -->

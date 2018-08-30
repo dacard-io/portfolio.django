@@ -10,107 +10,111 @@
 
         {% include "partials/meta.html" %}
         {% include "partials/stylesheets.html" %}
-
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-5DHLB6L');</script>
-        <!-- End Google Tag Manager -->
+        {% include "partials/analytics.html" %}
     </head>
 
     <body class="page blog">
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DHLB6L"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-        
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-        {% include "partials/resume.html" %}
 
         <div class="site-container"> <!-- To get push menu working properly -->
         
         {% include "partials/navigation.html" %}
 
-        <div class="hero small">
-            <!-- Temporarily disable nav until more blog content is completed-->
-            <div class="container hero-container">
-                <div class="row">
-                    <h1>Blog.</h1>
-                    <div class="waves-overlay">
-                        <canvas id="waves"></canvas>
-                    </div>
-                </div>
-                <h2>Case studies, written tutorials, project logs, and other dev topics.</a></i></h2>
-            </div>
-        </div>
+        <main role="main"><!-- Main view container -->
 
-        <div class="section posts" id="posts">
+        <section class="hero small">
+            <!-- Animated layers -->
+            <div class="gfx-layer one animated-hero heroFadeInLeft"><!-- Purple layer --></div>
+            <div class="overlay"></div><!-- Dark overlay to control background -->
+            <div class="gfx-layer two animated-hero heroFadeInRight"><!-- Orange layer --></div>
+            <div class="gfx-layer three animated-hero heroFadeInRight"><!-- Orange layer #2 --></div>
+
             <div class="container">
                 <div class="row">
-                    <div class="col thirty left-col">
-                        <h2>Posts</h2>
-                    </div>
-                    <div class="row seventy right-col align-right">
-                        <!-- Add tag filtering later, when there is more posts
-                        <p class="tag-filter-info"><i class="fa fa-tag"></i>&nbsp;&nbsp;Filter by:&nbsp;&nbsp;</p>
-                        <select class="tag-select">
-                            <option value="all">All Posts</option>
-                            <option value="case-studies">Case Studies</option>
-                            <option value="tutorials">Tutorials</option>
-                            <option value="project-log">Project Logs</option>
-                        </select>
-                        -->
-                        <!--
-                        <input type="search" class="project-search" placeholder="Search posts by language, framework, or keyword"/>
-                        -->
+                    <div class="col-md-6">
+                        <h1>Blog</h1>
+                        <p>Case studies, written tutorials, project logs, and other dev topics.</p>
                     </div>
                 </div>
-                <hr/>
-                <!--
-                <div class="projects-loading">
-                    <i class="fa fa-refresh" aria-hidden="true"></i>
-                    <span>Retrieving Projects...</span>
-                </div>
-                -->
-                <span class="noresults">No blog posts found that match your search criteria</span>
+            </div>
+        </section>
 
-                <div class="posts-row">
-                    <!-- Projects begin -->
-                    {% for post in recent_posts %}
-                    {% if post.published %}
-                    <div class="post-block" data-tag="{{ post.tag }}">
-                        <div class="post-container">
-                            <a class="post-title" href="{{ post.get_absolute_url }}"><h3>{{ post.title }}</h3></a>
-                            <p class="post-description">{{ post.description }}</p>
-                            <div class="row">
-                                <div class="post-meta">Posted on {{ post.pub_date }} &mdash; 
-                                    {% if post.tag == "uncategorized" %}
-                                        <div class="post-tag"><p><i class="fa fa-tag"></i>&nbsp;&nbsp;Uncategorized</p></div>
-                                    {% endif %}
-                                    {% if post.tag == "case-studies" %}
-                                        <div class="post-tag"><p><i class="fa fa-tag"></i>&nbsp;&nbsp;Case Studies</p></div>
-                                    {% endif %}
-                                    {% if post.tag == "tutorials" %}
-                                        <div class="post-tag"><p><i class="fa fa-tag"></i>&nbsp;&nbsp;Tutorials</p></div>
-                                    {% endif %}
-                                    {% if post.tag == "project-logs" %}
-                                        <div class="post-tag"><p><i class="fa fa-tag"></i>&nbsp;&nbsp;Project Logs</p></div>
-                                    {% endif %}
+        <section class="search-area">
+                <div class="container">
+                    <div class="row">
+
+                         <!-- Search Card -->
+                        <div class="col-12 col-md-9">
+                            <div class="card animated delay-medium fadeInUp">
+                                <div class="card-body text-center">
+                                    <label class="d-inline mr-3"><b>Filter by Posts: </b></label>
+                                    <a href="{% url 'blog' %}" class="btn ghost-blue {% if not request.GET.tag %}active{% endif %}">All Posts</a>
+                                    <a href="{% url 'blog' %}?tag=tutorials" class="btn ghost-blue {% if request.GET.tag == 'tutorials' %}active{% endif %}">Tutorials</a>
+                                    <a href="{% url 'blog' %}?tag=case-studies" class="btn ghost-blue {% if request.GET.tag == 'case-studies' %}active{% endif %}">Case Studies</a>
+                                    <a href="{% url 'blog' %}?tag=project-logs" class="btn ghost-blue {% if request.GET.tag == 'project-logs' %}active{% endif %}">Project Logs</a>
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                    {% endif %}
-                    {% endfor %}
-                    <!-- Projects end -->
                 </div>
-            </div>
-        </div>
+            </section>
+
+            <section class="posts">
+                <div class="container">
+                    <div class="row">
+                        {% for post in blog_posts %}
+                        {% if post.published %}
+                        <!-- Post Card -->
+                        <div class="card col-12 post-card" data-tag="{{ post.tag }}">
+                          <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 col-md-9">
+                                    <a href="{{ post.get_absolute_url }}"><h2 class="post-title text-left">{{ post.title }}</h2></a>
+                                    <p class="post-description text-left">{{ post.description }}</p>
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-between">
+                                            <p class="post-date">Posted on {{ post.pub_date|date:"M d, Y" }}</p>
+                                            {% if post.tag == "uncategorized" %}
+                                            <a class="post-tag"><i class="fa fa-tag"></i> Uncategorized</a>
+                                            {% endif %}
+                                            {% if post.tag == "case-studies" %}
+                                            <a class="post-tag" href="{% url 'blog' %}?tag=case-studies"><i class="fa fa-tag"></i> Case Studies</a>
+                                            {% endif %}
+                                            {% if post.tag == "tutorials" %}
+                                            <a class="post-tag" href="{% url 'blog' %}?tag=tutorials"><i class="fa fa-tag"></i> Tutorial</a>
+                                            {% endif %}
+                                            {% if post.tag == "project-logs" %}
+                                            <a class="post-tag" href="{% url 'blog' %}?tag=project-logs"><i class="fa fa-tag"></i> Project Logs</a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- End / Post Card -->
+                        {% endif %}
+                        {% empty %}
+                        <div class="card col-12 post-card" data-tag="not-found">
+                             <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12 col-md-9 text-center">
+                                        <hr/>
+                                        <h5><b><i class="fa fa-warning"></i>&nbsp;&nbsp;&nbsp;No blog posts found that match your search criteria</b></h5>
+                                        <hr/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+
+        </main><!-- End / Main view container -->
 
         {% include "partials/footer.html" %}
 

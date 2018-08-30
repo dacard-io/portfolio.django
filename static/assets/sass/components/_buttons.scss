@@ -1,37 +1,32 @@
-a.btn-main {
-	display: inline-block;
-	background: $accent;
-	color: white;
-	padding: .5rem 1rem;
-	border-radius: 5px;
-	text-decoration: none;
-	border-bottom: 3px solid $accent-hover;
+.btn {
+	&.ghost-blue {
+		color: $blue;
+		border: 3px solid $blue;
+		border-radius: 25px;
 
-	transition: all 0.2s linear; 
+		&:hover, &.active {
+			color: #fff;
+			background: $blue;
+		}
+	}
+	&.ghost-orange {
+		color: $orange;
+		border: 3px solid $orange;
+		border-radius: 25px;
 
-	&.alt {
-		background: $alt;
-		border-bottom: 3px solid $alt-hover;
+		&:hover, &.active {
+			color: #fff;
+			background: $orange;
+		}
 	}
-	&:hover {
-		background: $accent-hover;
-	}
-}
-a.btn-small {
-	display: inline-block;
-	background: $accent;
-	color: white;
-	padding: .1rem 1rem;
-	border-radius: 5px;
-	text-decoration: none;
-	border-bottom: 3px solid $accent-hover;
+	&.ghost-white {
+		color: #fff;
+		border: 3px solid #fff;
+		border-radius: 25px;
 
-	transition: all 0.2s linear; 
-	&.alt {
-		background: $alt;
-		border-bottom: 3px solid $alt-hover;
-	}
-	&:hover {
-		background: $accent-hover;
+		&:hover, &.active {
+			color: #fff;
+			background: $blue;
+		}
 	}
 }

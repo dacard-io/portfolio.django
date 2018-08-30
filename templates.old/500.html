@@ -1,0 +1,96 @@
+<!doctype html>
+
+{% load static %}
+
+<html class="no-js" lang="en">
+
+    <head>
+        <title>Home | Dacard.io</title>
+
+        {% include "partials/meta.html" %}
+        {% include "partials/stylesheets.html" %}
+    </head>
+
+    <body class="page home">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        {% include "partials/resume.html" %}
+
+        <div class="site-container"> <!-- To get push menu working properly -->
+        
+        {% include "partials/navigation.html" %}
+
+        <div class="hero">
+            <!-- Temporarily disable nav until more blog content is completed-->
+            <div class="container hero-container">
+                <div class="row">
+                    <h1>Hello.</h1>
+                    <div class="waves-overlay">
+                        <canvas id="waves"></canvas>
+                    </div>
+                </div>
+                <h2>I'm David, a web developer and programmer located in South Florida. I enjoy building meaningful web and app experiences. <!--<i>I am also the founder of <a href="#">YachtMix</a> and <a href="#">NextLight</a></i>.--></h2>
+                <p>Currently employed as a web developer at <a href="https://www.advantageservices.net" target="_blank">Advantage Services</a></p>
+            </div>
+        </div>
+
+        <div class="section projects" id="projects">
+            <div class="container">
+                <div class="row">
+                    <div class="col thirty left-col">
+                        <h2>Projects</h2>
+                    </div>
+                    <div class="row seventy right-col">
+                        
+                        <p class="tag-filter-info"><i class="fa fa-tag"></i>&nbsp;&nbsp;Filter by:&nbsp;&nbsp;</p>
+                        <select class="tag-select">
+                            <option value="all">All Projects</option>
+                            <option value="web-app">Web Apps</option>
+                            <option value="android-app">Android Apps</option>
+                            <option value="website">Websites</option>
+                            <option value="ecommerce">e-Commerce</option>
+                            <option value="plugins-extensions">Plugins &amp; Extensions</option>
+                            <!--<option value="utilities">Utilities</option>-->
+                        </select>
+                        
+                        <input type="search" class="project-search" placeholder="Search projects by language, framework, or keyword"/>
+                    </div>
+                </div>
+                <hr/>
+                <!--
+                <div class="projects-loading">
+                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                    <span>Retrieving Projects...</span>
+                </div>
+                -->
+                <span class="noresults">No projects found that match your search criteria</span>
+
+                <div class="projects-row">
+                    <!-- Projects begin -->
+                    {% for project in projects %}
+                    {% if project.enabled %}
+                    <div class="project-block" data-tag="{{ project.tag }}">
+                        <div class="project-info">
+                            <a href="http://reddicast.com" target="_blank"><h3>{{ project.title }}</h3></a>
+                            <p>{{ project.description }}. Built with <span>{{ project.stack }}</span></p>
+                            <a href="{{ project.link }}" class="view-btn" target="_blank">View Project</a>
+                            <div class="project-tag text-center"><p><i class="fa fa-tag"></i>&nbsp;&nbsp;{{ project.tag }}</p></div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    <!-- Projects end -->
+                </div>
+            </div>
+        </div>
+
+        {% include "partials/footer.html" %}
+
+        </div><!-- site-container end -->
+
+        {% include "partials/javascript.html" %}
+    </body>
+
+</html>

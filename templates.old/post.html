@@ -1,0 +1,147 @@
+<!doctype html>
+
+{% load static %}
+
+<html class="no-js" lang="en">
+
+    <head>
+        <title>{{ post.title }} | Dacard.io</title>
+        <meta name="description" content="{{ post.description }}">
+
+        {% include "partials/meta.html" %}
+
+        <!-- Open Graph Protocol (Facebook) -->
+        <meta property="og:url"                content="http://dacard.io{% url 'blog' %}{{ post.permalink }}" />
+        <meta property="og:type"               content="article" />
+        <meta property="og:title"              content="{{ post.title }}" />
+        <meta property="og:description"        content="{{ post.description }}" />
+        <meta property="og:image"              content="http://dacard.io/static/assets/images/logo.png" />
+
+        {% include "partials/stylesheets.html" %}
+
+        <!-- Include Prism for syntax highlighting -->
+        <link rel="stylesheet" href="{% static 'assets/css/prism.css' %}">
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5DHLB6L');</script>
+        <!-- End Google Tag Manager -->
+    </head>
+
+    <body class="page post">
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DHLB6L"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+      
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        {% include "partials/resume.html" %}
+
+        <div class="site-container"> <!-- To get push menu working properly -->
+        
+        {% include "partials/navigation.html" %}
+
+        <div class="hero small">
+            <div class="container hero-container">
+                <div class="row">
+                    <h1>{{ post.title }}</h1>
+                    <div class="waves-overlay">
+                        <canvas id="waves"></canvas>
+                    </div>
+                </div>
+                <h2>{{ post.description }}</a></i></h2>
+                <div class="post-meta">Posted on {{ post.pub_date }}</div>
+            </div>
+        </div>
+
+        <div class="section posts" id="posts">
+            <div class="container">
+
+                <div class="post-content">
+                    <!-- Post Content -->
+
+                    {{ post.content|safe }}
+
+                    <!-- End Post Content -->
+                </div>
+
+                <div class="disqus-container">
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <div id="disqus_thread"></div>
+                </div>
+            </div>
+        </div>
+
+        {% include "partials/footer.html" %}
+
+        </div><!-- site-container end -->
+
+        {% include "partials/javascript.html" %}
+        <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+        <script src="{% static 'assets/js/prism.js' %}"></script>
+
+        <!-- Disqus -->
+        <script>
+        var disqus_config = function () {
+        this.page.url = 'http://dacard.io{% url 'blog' %}{{ post.permalink }}';
+        this.page.identifier = '{{ post.permalink }}';
+        };
+        
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://dacard-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+
+        <!-- Schema.org -->
+        <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "Article",
+          "author": "David Cardoso",
+          "publisher": {
+                "@context" : "http://schema.org",
+                "@type" : "Organization",
+                "name": "Dacard.io",
+                "url" : "http://dacard.io",
+                "logo": {
+                  "@context": "http://schema.org",
+                  "@type": "ImageObject",
+                  "author": "David Cardoso",
+                  "contentLocation": "Coconut Creek, Florida",
+                  "contentUrl": "static/assets/images/logo.png",
+                  "url" : "http://dacard.io",
+                  "datePublished": "2017-10-23",
+                  "description": "Dacard.io Logo",
+                  "name": "Dacard.io Logo"
+                }
+            },
+          "name": "{{ post.title }}",
+          "headline": "{{ post.title }}",
+          "description": "{{ post.description }}",
+          "datePublished": "{{ post.pub_date }}",
+          "url": "http://dacard.io{% url 'blog' %}{{ post.permalink }}",
+          "image": {
+              "@context": "http://schema.org",
+              "@type": "ImageObject",
+              "author": "David Cardoso",
+              "contentLocation": "Coconut Creek, Florida",
+              "contentUrl": "static/assets/images/logo.png",
+              "url" : "http://dacard.io",
+              "datePublished": "2017-10-23",
+              "description": "Dacard.io Logo",
+              "name": "Dacard.io Logo"
+            }
+        }
+        </script>
+    </body>
+
+</html>

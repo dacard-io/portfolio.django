@@ -1,58 +1,85 @@
-.hero {
+section.hero {
+	position: relative;
 	display: flex;
-	justify-content: center;
 	align-items: center;
+	//padding-top: 56px; // Size of nav
+	height: 80vh;
+	min-height: 400px;
+	background: url('../images/hero-bg.jpg');
+	background-attachment: fixed;
+	background-position: left center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	overflow: hidden;
 
-	width: 100%;
-	height: 500px;
+	.overlay {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		opacity: 0.25;
+		background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+	}
+	.gfx-layer {
+		position: absolute;
+		width: 1200px;
+		height: 100%;
+		transition: all 0.2s ease-in;
 
-    padding-top: 66px;
+		&.one {
+			// Purple layer
+			background-color: #03a0ff;
+			mix-blend-mode: soft-light;
+			transform: skew(45deg);
+			left: -400px;
+			border-right: 15px solid lightblue;
+		}
+		
+		&.two {
+			// Orange layer
+			background-color: #FFB103;
+			transform: skew(-45deg);
+			right: -1185px;
+			opacity: 0.4;
+			//z-index: 9;
+		}
+		&.three {
+			// Orange layer
+			background-color: #FFB103;
+			transform: skew(-45deg);
+			right: -1200px;
+			opacity: 0.5;
+			//z-index: 10;
+		}
+	}
 
-    h1 {
-    	color: white;
-    	font-weight: 700;
-    	margin: 0;
-        font-size: 3em;
-    }
-    h2 {
-        font-family: $content-font;
-    	color: white;
-    	font-weight: 100;
-    	font-size: 1.5em;
-    	margin: 0;
-    }
-    a {
-        color: white;
-    	margin-top: 1rem;
-    }
-    p {
-        display: inline-block;
-        border: 1px solid #fff;
-        color: white;
-        padding: .5rem;
-    }
+	h1 {
+		color: white;
+	}
+	small {
+		display: inline-block;
+		color: white;
+		border: 3px solid white;
+		padding: 0.5rem 1rem;
+		margin-bottom: 1rem;
+	}
+	p {
+		color: white;
+	}
 
-    .waves-overlay {
-        position: absolute;
-        width: 100%;
-        height: 4rem; //Same height as header text
-        left: 0;
-        z-index: 0;
-        //margin-top: 1rem;
-    }
-    .container {
-        h1 {
-            z-index: 1;
-        }
-    }
+	// Hero Variants
+	&.small {
+		height: 400px;
+		min-height: 400px;
+	}
+}
 
-    .hero-container {
-        margin-left: unset; // Fixes issues with IE11 for some reason
-        margin-right: unset;
-    }
+/*************
+*** RESPONSIVE
+*************/
 
-    // Smaller hero
-    &.small {
-        height: 300px;
-    }
+section.hero {
+	@media (max-width: 768px) {
+		background-attachment: scroll; // Resolves mobile issues
+		background-position: left center;
+	}
 }

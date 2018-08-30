@@ -1,0 +1,508 @@
+.navbar {
+	margin-bottom: 0;
+	//background: #21242b;
+	padding: 1rem 16px;
+	transition: all 0.2s ease-in;
+
+	.navbar-brand {
+		transition: all 0.2s ease-in;
+		img {
+			max-height: 36px;
+		}
+	}
+
+	&.scrolled {
+		background: rgba(255, 255, 255, 0.95);
+		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+		padding: 0.65rem 16px;
+	}
+
+	&.menu-open {
+		background: transparent;
+		border-bottom: none;
+		padding: 1rem 16px;
+		pointer-events: none;
+		right: 50%;
+
+		.navbar-brand {
+			opacity: 0;
+		}
+	}
+}
+
+/* I took a hamburger menu from Codrops */
+.hamburger {
+	width: 64px;
+	height: 64px;
+	display: block;
+	position: relative;
+	cursor: pointer;
+	z-index: 110;
+	border-radius: 50%;
+	background-color: white;
+	pointer-events: auto;
+	box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.hamburger::after {
+	width: 64px;
+	height: 64px;
+	box-sizing: border-box;
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	border: 4px solid white;
+	border-radius: 50%;
+}
+
+.hamburger:hover::after {
+	-webkit-animation-duration: 1.2s;
+	animation-duration: 1.2s;
+	-webkit-animation-name: intervalHamburgerBorder;
+	animation-name: intervalHamburgerBorder;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+} 
+
+.hamburger__line {
+	width: 28px;
+	height: 2px;
+	overflow: hidden;
+	position: absolute;
+	z-index: 10;
+}
+
+.hamburger__line-in {
+	width: 84px;
+	height: 2px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.hamburger__line-in::before,
+.hamburger__line-in::after {
+	width: 28px;
+	height: 2px;
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	background-color: $blue;
+}
+
+.hamburger__line-in::before {
+	left: -56px;
+}
+
+.hamburger__line-in::after {
+	left: 0;
+}
+
+.hamburger__line--01,
+.hamburger__line--02,
+.hamburger__line--03,
+.hamburger__line--cross01,
+.hamburger__line--cross02 {
+	left: 18px;
+}
+
+.hamburger__line--01 {
+	top: 24.6px;
+}
+
+.hamburger__line--02,
+.hamburger__line--cross01,
+.hamburger__line--cross02 {
+	top: 31px;
+}
+
+.hamburger__line--03 {
+	top: 37.4px;
+}
+
+.hamburger__line--cross01 {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.hamburger__line--cross02 {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.hamburger__line {
+	-webkit-transition-duration: 0.6s;
+	transition-duration: 0.6s;
+	-webkit-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+	transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.hamburger__line-in {
+	-webkit-transition-duration: 0.6s;
+	transition-duration: 0.6s;
+	-webkit-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+	transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.hamburger__line-in::before,
+.hamburger__line-in::after {
+	-webkit-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+	transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+	-webkit-transition-property: -webkit-transform;
+	transition-property: -webkit-transform;
+	transition-property: transform;
+	transition-property: transform, -webkit-transform;
+}
+
+.hamburger__line-in--cross01,
+.hamburger__line-in--cross02 {
+	-webkit-transform: translateX(-33.3%);
+	transform: translateX(-33.3%);
+}
+
+.hamburger__line-in--01 {
+	-webkit-transition-delay: 0.2s;
+	transition-delay: 0.2s;
+}
+
+.hamburger__line-in--02 {
+	-webkit-transition-delay: 0.25s;
+	transition-delay: 0.25s;
+}
+
+.hamburger__line-in--02::before,
+.hamburger__line-in--02::after {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+.hamburger__line-in--03 {
+	-webkit-transition-delay: 0.3s;
+	transition-delay: 0.3s;
+}
+
+.hamburger__line-in--03::before,
+.hamburger__line-in--03::after {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+.hamburger__line-in--cross01 {
+	-webkit-transition-delay: 0.0s;
+	transition-delay: 0.0s;
+}
+
+.hamburger__line-in--cross02 {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+.hamburger__line-in--cross02::before,
+.hamburger__line-in--cross02::after {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+.hamburger.is-opened .hamburger__line-in--01,
+.hamburger.is-opened .hamburger__line-in--02,
+.hamburger.is-opened .hamburger__line-in--03 {
+	-webkit-transform: translateX(33.3%);
+	transform: translateX(33.3%);
+}
+
+.hamburger.is-opened .hamburger__line-in--cross01,
+.hamburger.is-opened .hamburger__line-in--cross02 {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+}
+
+.hamburger.is-opened .hamburger__line-in--01 {
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+.hamburger.is-opened .hamburger__line-in--02 {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+.hamburger.is-opened .hamburger__line-in--03 {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+.hamburger.is-opened .hamburger__line-in--cross01 {
+	-webkit-transition-delay: 0.25s;
+	transition-delay: 0.25s;
+}
+
+.hamburger.is-opened .hamburger__line-in--cross02 {
+	-webkit-transition-delay: 0.3s;
+	transition-delay: 0.3s;
+}
+
+.hamburger:hover .hamburger__line-in::before,
+.hamburger:hover .hamburger__line-in::after {
+	-webkit-transform: translateX(200%);
+	transform: translateX(200%);
+}
+
+.hamburger:hover .hamburger__line-in--01::before,
+.hamburger:hover .hamburger__line-in--01::after,
+.hamburger:hover .hamburger__line-in--02::before,
+.hamburger:hover .hamburger__line-in--02::after,
+.hamburger:hover .hamburger__line-in--03::before,
+.hamburger:hover .hamburger__line-in--03::after {
+	-webkit-transition-duration: 1s;
+	transition-duration: 1s;
+}
+
+.hamburger:hover .hamburger__line-in--cross01::before,
+.hamburger:hover .hamburger__line-in--cross01::after,
+.hamburger:hover .hamburger__line-in--cross02::before,
+.hamburger:hover .hamburger__line-in--cross02::after {
+	-webkit-transition-duration: 0s;
+	transition-duration: 0s;
+}
+
+.hamburger.is-opened:hover .hamburger__line-in--cross01::before,
+.hamburger.is-opened:hover .hamburger__line-in--cross01::after,
+.hamburger.is-opened:hover .hamburger__line-in--cross02::before,
+.hamburger.is-opened:hover .hamburger__line-in--cross02::after {
+	-webkit-transition-duration: 1s;
+	transition-duration: 1s;
+}
+
+.hamburger.is-opened:hover .hamburger__line-in--01::before,
+.hamburger.is-opened:hover .hamburger__line-in--01::after,
+.hamburger.is-opened:hover .hamburger__line-in--02::before,
+.hamburger.is-opened:hover .hamburger__line-in--02::after,
+.hamburger.is-opened:hover .hamburger__line-in--03::before,
+.hamburger.is-opened:hover .hamburger__line-in--03::after {
+	-webkit-transition-duration: 0s;
+	transition-duration: 0s;
+}
+
+@-webkit-keyframes intervalHamburgerBorder {
+	0% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+	80% {
+		-webkit-transform: scale(1.6);
+		transform: scale(1.6);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: scale(1.6);
+		transform: scale(1.6);
+	}
+}
+
+@keyframes intervalHamburgerBorder {
+	0% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+	80% {
+		-webkit-transform: scale(1.6);
+		transform: scale(1.6);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: scale(1.6);
+		transform: scale(1.6);
+	}
+}
+
+/* Main Menu */
+main {
+	transition: all 0.5s ease-in-out;
+	&.is-opened {
+		// Move DOM entirely to the right for the push menu
+		transform: translate(-50%, 0);
+		overflow: hidden !important;
+		//background: rgba(0, 0, 0, .4);
+    	//filter: blur(1px);
+    	opacity: 0.75;
+	}
+}
+
+.main-menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100vh;
+	margin: 0 0 0 100%;
+	transition: all 0.5s ease-in-out;
+	overflow: auto;
+	background: white;
+
+	ul.menu-links {
+		padding-left: 0;
+		list-style: none;
+		li {
+			&:first-child {
+		    	border-top: 1px solid rgba(0,0,0,.1);
+		    }
+		}
+		a {
+			position: relative;
+			display: inline-block;
+			border-bottom: 1px solid rgba(0,0,0,.1);
+			font-size: 1.5em;
+			font-weight: 800;
+		    text-transform: uppercase;
+		    border-bottom: 1px solid rgba(0,0,0,.1);
+		    padding: 1rem 0;
+		    width: 100%;
+
+		    &:before {
+			    content: "";
+			    display: block;
+			    position: absolute;
+			    left: -31px;
+			    top: 0;
+			    width: 0px;
+			    height: 100%;
+			    background: #f39c12;
+			    transition: all 0.2s ease-in;
+			}
+
+		    &:hover {
+		    	text-decoration: none;
+
+		    	&:before {
+			    	width: 10px;
+			    }
+		    }
+		}
+		a.active {
+			&:before {
+		    	width: 10px;
+		    }
+		}
+	}
+	ul.blog-posts {
+		padding-left: 0;
+		li {
+			list-style: none;
+			margin-top: 1rem;
+			margin-bottom: 0.5rem;
+			&:before {
+				content: "\f138"; // Right Chevron Circle in Font Awesome
+				display: inline-block;
+			    font: normal normal normal 1.05em FontAwesome;
+				height: 1em;
+				width: 1em;
+				margin-right: 0.5rem;
+				color: $orange;
+			}
+		}
+
+		a {
+			color: #787878;
+			font-weight: 800;
+			&:hover {
+				color: $blue;
+		    	text-decoration: none;
+		    }
+		}
+		small {
+			padding: 0 0 0 1.9rem;
+			font-style: italic;
+		}
+		p {
+			padding: 0 0 0 1.9rem;
+		}
+	}
+
+	&.is-opened {
+		// Add open styling hero
+		box-shadow: 1px 1px 5px 1px rgba(0,0,0,1);
+		// Put menu in view by removing margin
+	    margin: 0 0 0 50%;
+	}
+
+	/* General Styling */
+	padding: 1rem 2rem; 
+
+	h1 {
+		margin: 0;
+		font-weight: 100;
+		font-size: 2.5em;
+	}
+	h2 {
+		margin: 0;
+		font-weight: 700;
+		font-size: 1.5em;
+		color: $blue;
+		text-transform: uppercase;
+	}
+	h3 {
+		margin: 0;
+		font-weight: 700;
+		font-size: 1.25em;
+	}
+	.group {
+		margin: 1rem 0;
+
+		&:last-child {
+			margin-bottom: 4rem;
+		}
+	}
+	.entry {
+		margin: 2rem 0;
+
+		h4 {
+			margin: 1rem 0 0.5rem;
+			font-size: 1.15em;
+		}
+		p {
+			margin: 0;
+			padding-right: 2rem;
+		}
+
+		ul {
+			li {
+				margin: 0.5rem 0;
+				padding-right: 2rem;
+			}
+		}
+	}
+}
+
+
+// Media queries below
+@media (max-width: 768px) {
+	main {
+		&.is-opened {
+			// Move DOM entirely to the right for the push menu
+			transform: translate(-100%, 0);
+		}
+	}
+	.main-menu {
+		width: 100%;
+
+		&.is-opened {
+			margin: 0 0 0 0;
+		}
+	}
+	.navbar {
+		&.menu-open {
+			right: 0;
+		}
+	}
+
+	.hamburger {
+		margin-top: 3px;
+	}
+}

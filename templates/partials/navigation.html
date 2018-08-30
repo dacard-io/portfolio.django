@@ -1,15 +1,82 @@
+<!-- Partial / navigation -->
 {% load static %}
-<nav class="navigation">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DHLB6L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md fixed-top">
     <div class="container">
-        <div class="row space-between">
-            <a href="{% url 'index' %}" class="site-logo"><img src="{% static 'assets/images/logo.png' %}"/></a>
-            <ul class="main-menu">
-                <!--<li><a href="{% url 'index' %}#projects">Projects</a></li>-->
-                <li><a href="{% url 'blog' %}">Blog</a></li>
-                <!--<li><a href="#">Blog</a></li>-->
-                <li><a href="#" class="push-menu-button">Resume</a></li>
-                <!--<li><a class="push-menu-button" href="#">MENU</a></li>-->
-            </ul>
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img class="logo" src="{% static 'assets/images/logo.png' %}"/>
+        </a>
+      
+        <!-- Fancy hamburger -->
+        <div class="hamburger">
+            <div class="hamburger__line hamburger__line--01">
+                <div class="hamburger__line-in hamburger__line-in--01"></div>
+            </div>
+            <div class="hamburger__line hamburger__line--02">
+                <div class="hamburger__line-in hamburger__line-in--02"></div>
+            </div>
+            <div class="hamburger__line hamburger__line--03">
+                <div class="hamburger__line-in hamburger__line-in--03"></div>
+            </div>
+            <div class="hamburger__line hamburger__line--cross01">
+                <div class="hamburger__line-in hamburger__line-in--cross01"></div>
+            </div>
+            <div class="hamburger__line hamburger__line--cross02">
+                <div class="hamburger__line-in hamburger__line-in--cross02"></div>
+            </div>
         </div>
+
     </div>
 </nav>
+
+<!-- Full Screen Menu -->
+<div class="main-menu">
+    <div class="overlay"></div><!-- Dark overlay to control background -->
+    <ul class="menu-links">
+        <li><a href="{% url 'projects' %}" {% if 'projects' in request.path %}class="active"{% endif %}>Projects</a></li>
+        <li><a href="{% url 'blog' %}" {% if 'blog' in request.path  %}class="active"{% endif %}>Blog</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#contactModal" {% if 'contact' in request.path  %}class="active"{% endif %}>Contact</a></li>
+    </ul>
+    <div class="group">
+        <h3>Recent Blog Posts</h3>
+        <ul class="blog-posts">
+            {% for post in recent_posts %}
+            <li>
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                <small><br/>Published on {{ post.pub_date }}</small>
+                <p>{{ post.description }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<!-- Contact Modal -->
+<!-- Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="contactModalLabel">Contact</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Have a project in mind or have a web-related problem that needs solving? Get in touch.</p>
+        <!-- Cognito Form -->
+        <div class="cognito">
+        <script src="https://services.cognitoforms.com/s/5HMCbGbY4keR3vTHg86Yuw"></script>
+        <script>Cognito.load("forms", { id: "1" });</script>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end / Partial / navigation -->

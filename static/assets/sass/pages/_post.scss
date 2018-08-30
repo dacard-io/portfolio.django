@@ -1,0 +1,52 @@
+.page.post {
+	section.content {
+		margin: 4rem 0;
+
+		p {
+			font-size: 1.15em;
+		}
+		h2 {
+			color: $blue;
+			font-weight: 400;
+		}
+		ul {
+			padding-left: 0;
+			li {
+				list-style: none;
+				margin-bottom: 0.5rem;
+				&:before {
+					content: "\f138"; // Right Chevron Circle in Font Awesome
+					display: inline-block;
+				    font: normal normal normal 1.05em FontAwesome;
+					height: 1em;
+					width: 1em;
+					margin-right: 0.5rem;
+					color: $orange;
+				}
+			}
+		}
+	}
+}
+
+
+////////////////////////////////////
+/////////////RESPONSIVE/////////////
+////////////////////////////////////
+.page.post {
+
+// XL breakpoint
+@media (max-width: $xl-breakpoint) {}
+
+// LG breakpoint
+@media (max-width: $lg-breakpoint) {}
+
+// MD breakpoint
+@media (max-width: $md-breakpoint) {}
+
+// SM breakpoint
+@media (max-width: $sm-breakpoint) {}
+
+// XS  breakpoint
+@media (max-width: $xs-breakpoint) {}
+
+}

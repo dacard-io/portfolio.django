@@ -1,29 +1,62 @@
 /** Boilerplate Stylesheet entrypoint **/
 
-// Include proprietary framework
-@import 'base/variables'; // Variables are loaded first to be used across other partials/sass files
+// Include Abstracts
+@import 'abstracts/variables';
+@import 'abstracts/helpers';
 
-@import 'base/framework';
-@import 'base/theme';
+// Include vendor/dependencies
+@import 'vendor/bootstrap-4.1.0/bootstrap';
 
-// Include Seperate components
-@import 'components/nav';
-@import 'components/sections';
+// Import Base
+@import 'base/typography';
+
+// Include Layout
+@import 'layout/body'; // This would be body element. Edit carefully
+@import 'layout/section';
+@import 'layout/main'; // This would be the main container element
+@import 'layout/navigation';
+@import 'layout/scrollbar'; // Contains scrollbar overrides
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/forms';
+
+// Include Components
+@import 'components/animations';
 @import 'components/buttons';
 @import 'components/hero';
-@import 'components/project_blocks';
-@import 'components/info_blocks';
-@import 'components/cta';
-@import 'components/tech';
-@import 'components/footer';
-@import 'components/pushmenu';
-@import 'components/animations';
+@import 'components/cards';
 
-// Include Seperate page styles
-@import 'pages/homepage';
+// Include Pages
+@import 'pages/home';
 @import 'pages/blog';
 @import 'pages/post';
-@import 'pages/about';
+@import 'pages/projects';
+@import 'pages/project';
 
-// Responsive styles load last so they don't get overriden
-@import 'base/mobile';
+// Include Themes (Like admin, dark, etc. This would be for larger projects)
+
+
+/* Copy the responsive breakpoints below into your sass files: (You can find the responsive breakpoint variables inside abstracts/variables.less)
+
+////////////////////////////////////
+/////////////RESPONSIVE/////////////
+////////////////////////////////////
+.site.page {
+
+// XL breakpoint
+@media (max-width: @xl-breakpoint) {}
+
+// LG breakpoint
+@media (max-width: @lg-breakpoint) {}
+
+// MD breakpoint
+@media (max-width: @md-breakpoint) {}
+
+// SM breakpoint
+@media (max-width: @sm-breakpoint) {}
+
+// XS  breakpoint
+@media (max-width: @xs-breakpoint) {}
+}
+
+*/

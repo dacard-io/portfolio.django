@@ -1,0 +1,198 @@
+.page.projects {
+	section.search-area {
+		margin-top: -3rem;
+
+		.card {
+			transition: all 0.2s ease-in;
+		}
+
+		.tag-list {
+			list-style: none;
+			padding-left: 0;
+			margin-top: 1rem;
+			margin-bottom: 0;
+			text-align: center;
+
+			li {
+				display: inline-block;
+			}
+		}
+
+		#reset-search {
+		    float: right;
+		    background: #848484;
+		    color: white;
+		    padding: 0 0.5rem;
+		    border-radius: 25px;
+		    cursor: pointer;
+
+			&:hover {
+				background: #5f5f5f;
+			}
+		}
+
+		// Custom button style for this page - uses individual tech!
+		.btn.project-tag {
+			color: gray;
+			border: 3px solid #787878; // Default color
+			border-radius: 25px;
+			padding: 0 0.35rem;
+			font-size: 0.8rem;
+			margin: 0 0.05rem 0.5rem;
+
+			&.javascript {
+				border-color: #f9dd3c;
+				&:hover, &.active { background: #f9dd3c; color: #fff; }
+			}
+			&.react {
+				border-color: #4ad6ff;
+				&:hover, &.active { background: #4ad6ff; color: #fff; }
+			}
+			&.python {
+				border-color: #3b77aa;
+				&:hover, &.active { background: #3b77aa; color: #fff; }
+			}
+			&.django {
+				border-color: #092f21;
+				&:hover, &.active { background: #092f21; color: #fff; }
+			}
+			&.php {
+				border-color: #4e5a93;
+				&:hover, &.active { background: #4e5a93; color: #fff; }
+			}
+			&.csharp {
+				border-color: #953dac;
+				&:hover, &.active { background: #953dac; color: #fff; }
+			}
+			&.wordpress {
+				border-color: #22749a;
+				&:hover, &.active { background: #22749a; color: #fff; }
+			}
+			&.magento {
+				border-color: #f26222;
+				&:hover, &.active { background: #f26222; color: #fff; }
+			}
+			&.shopify {
+				border-color: #95c047;
+				&:hover, &.active { background: #95c047; color: #fff; }
+			}
+			&.asp-net {
+				border-color: #5b2e91;
+				&:hover, &.active { background: #5b2e91; color: #fff; }
+			}
+			&.unity {
+				border-color: #000;
+				&:hover, &.active { background: #000; color: #fff; }
+			}
+			&.coldfusion {
+				border-color: #2a4e5a;
+				&:hover, &.active { background: #2a4e5a; color: #fff; }
+			}
+			&.aws {
+				border-color: #f68c11;
+				&:hover, &.active { background: #f68c11; color: #fff; }
+			}
+		} 
+
+		.card:hover {
+			.card-link {
+				opacity: 1;
+				color: $orange;
+			}
+		}
+	}
+
+	section.projects {
+		padding: 4rem 0;
+
+		.project-card {
+			box-shadow: none;
+			transition: all 0.2s ease-in;
+			
+			// Override animated.css
+			&.animated {
+				animation-duration: 1.5s !important;
+			}
+
+			img {
+				padding-right: 1rem;
+			}
+			.project-column {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			.project-title {
+				display: inline-block;
+				font-size: 1.25em;
+				//font-weight: bold;
+				color: $blue;
+
+				&:hover {
+					color: #183c8a;
+				}
+			}
+			.project-description {
+				font-size: 1em;
+			}
+			.project-stack {
+				font-weight: bold;
+				font-size: 1em;
+				&:before {
+					content: "\f138"; // Right Chevron Circle in Font Awesome
+					display: inline-block;
+				    font: normal normal normal 1.05em FontAwesome;
+					height: 1em;
+					width: 1em;
+					margin-right: 0.5rem;
+					color: $orange;
+				}
+			}
+			a.project-tag {
+				float: right;
+				color: #787878;
+				font-weight: 600;
+				margin-top: 0.5rem;
+
+				&:hover {
+					text-decoration: none;
+					color: $blue;
+				}
+			}
+			a.btn {
+				display: inline-block;
+				margin-left: 1rem;
+				margin-bottom: 0.5rem;
+				padding: 0 0.45rem;
+
+				&:last-child {
+					margin-left:  0;
+				}
+			}
+		}
+	}
+}
+
+
+
+////////////////////////////////////
+/////////////RESPONSIVE/////////////
+////////////////////////////////////
+.page.projects {
+
+// XL breakpoint
+@media (max-width: $xl-breakpoint) {}
+
+// LG breakpoint
+@media (max-width: $lg-breakpoint) {}
+
+// MD breakpoint
+@media (max-width: $md-breakpoint) {}
+
+// SM breakpoint
+@media (max-width: $sm-breakpoint) {}
+
+// XS  breakpoint
+@media (max-width: $xs-breakpoint) {}
+
+}

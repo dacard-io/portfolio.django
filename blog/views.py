@@ -11,12 +11,19 @@ from .models import Post
 
 # Create your views here.
 def blog(request):
-	#recent_posts = Post.objects.order_by('-pub_date')[:5] # Retrieve 5 objects and order by pub_date
-	recent_posts = Post.objects.order_by('-pub_date') # Retrieve all objects and order by pub_date
+	queryset = Post.objects.order_by('-pub_date') # Retrieve all objects and order by pub_date
+	
+	# Get URL param "tag" to do basic filtering
+	tag_query = request.GET.get('tag', '') # Second param is the default value if nothing is found
+
+	# If tag query found, filter posts by tag
+	if tag_query:
+		queryset = queryset.filter(tag__icontains=tag_query)
+
 	template = loader.get_template('blog.html')
 
 	context = {
-		'recent_posts': recent_posts,
+		'blog_posts': queryset,
 		'site_url': settings.SITE_URL
 	}
 
@@ -24,22 +31,22 @@ def blog(request):
 
 # Post view (by ID)
 def post(request, post_id):
-	post = get_object_or_404(Post, pk=post_id)
+	queryset = get_object_or_404(Post, pk=post_id)
 	template = loader.get_template('post.html')
 
 	context = {
-		'post': post
+		'post': queryset
 	}
 
 	return HttpResponse(template.render(context, request))
 
 def post_permalink(request, permalink):
 	#queryset = Post.objects.filter(permalink=permalink)
-	post = get_object_or_404(Post, permalink=permalink)
+	queryset = get_object_or_404(Post, permalink=permalink)
 	template = loader.get_template('post.html')
 
 	context = {
-		'post': post
+		'post': queryset
 	}
 
 	return HttpResponse(template.render(context, request))

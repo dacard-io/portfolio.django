@@ -1,0 +1,37 @@
+a.btn-main {
+	display: inline-block;
+	background: $accent;
+	color: white;
+	padding: .5rem 1rem;
+	border-radius: 5px;
+	text-decoration: none;
+	border-bottom: 3px solid $accent-hover;
+
+	transition: all 0.2s linear; 
+
+	&.alt {
+		background: $alt;
+		border-bottom: 3px solid $alt-hover;
+	}
+	&:hover {
+		background: $accent-hover;
+	}
+}
+a.btn-small {
+	display: inline-block;
+	background: $accent;
+	color: white;
+	padding: .1rem 1rem;
+	border-radius: 5px;
+	text-decoration: none;
+	border-bottom: 3px solid $accent-hover;
+
+	transition: all 0.2s linear; 
+	&.alt {
+		background: $alt;
+		border-bottom: 3px solid $alt-hover;
+	}
+	&:hover {
+		background: $accent-hover;
+	}
+}
