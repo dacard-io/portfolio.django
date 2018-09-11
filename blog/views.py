@@ -23,6 +23,9 @@ def blog(request):
 	template = loader.get_template('blog.html')
 
 	context = {
+		'casestudies_available': any(post.tag == "case-studies" for post in queryset),
+		'tutorials_available': any(post.tag == "tutorials" for post in queryset),
+		'projectlogs_available': any(post.tag == "project-logs" for post in queryset),
 		'blog_posts': queryset,
 		'site_url': settings.SITE_URL
 	}

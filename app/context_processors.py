@@ -6,7 +6,7 @@ from blog.models import Post
 from app.settings import SITE_URL
 
 def app_processor(request):
-	recent_posts = Post.objects.order_by('-pub_date')[:3] # Retrieve 3 objects and order by pub_date
+	recent_posts = Post.objects.filter(published=True).order_by('-pub_date')[:3] # Retrieve 3 objects and order by pub_date
 
 	# Return data to template
 	return {

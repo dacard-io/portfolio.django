@@ -1,0 +1,155 @@
+<!doctype html>
+
+{% load static %}
+
+<html class="no-js" lang="en">
+
+    <head>
+        <title>Contact | Dacard.io</title>
+        <meta name="description" content="I'm David, a web developer and programmer located in South Florida. I enjoy building meaningful web and app experiences.">
+
+        {% include "partials/meta.html" %}
+
+        {% include "partials/stylesheets.html" %}
+
+        {% include "partials/analytics.html" %}
+    </head>
+
+    <body class="page contact">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        {% include "partials/navigation.html" %}
+
+        <main role="main"><!-- Main container -->
+
+        <section class="hero small">
+            <!-- Animated layers -->
+            <div class="gfx-layer one animated-hero heroFadeInLeft"><!-- Purple layer --></div>
+            <div class="overlay"></div><!-- Dark overlay to control background -->
+            <div class="gfx-layer two animated-hero heroFadeInRight"><!-- Orange layer --></div>
+            <div class="gfx-layer three animated-hero heroFadeInRight"><!-- Orange layer #2 --></div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>Contact</h1>
+                        <p>Have a project in mind or have a web-related problem that needs solving? Get in touch.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wrap layout in row (I don't usually do this) -->
+        <div class="container"><!-- container -->
+        <div class="row"><!-- row -->
+
+          <div class="col-12 col-lg-5"><!-- col -->
+            <section class="blurb">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-12"> 
+                            <h2>How can I help?</h2>    
+                            <p>Describe your needs in detail with the form shown.</p>
+                            <hr/>
+                            <p><b>Let me assist you with your next or current:</b></p>
+                            <ul>
+                                <li>Website</li>
+                                <li>E-Commerce Project</li>
+                                <li>Enterprise Web Application</li>
+                                <li>Growth Strategy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+          </div><!-- col / end -->
+
+          <div class="col-12 col-lg-7"><!-- col -->
+            <section class="contact-area">
+                <div class="container">
+                    <div class="row">
+                        <!-- Featured Card -->
+                        <div class="col-12">
+                            <div class="card featured-card animated delay-short fadeInUp">
+                              <div class="card-body">
+
+                                <div class="loader">
+                                  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                                </div>
+                                
+                                <!-- Cognito Form -->
+                                <div class="cognito">
+                                <script src="https://services.cognitoforms.com/s/5HMCbGbY4keR3vTHg86Yuw"></script>
+                                <script>Cognito.load("forms", { id: "1" });</script>
+                                <style>
+                                .cognito .c-button-section {
+                                  text-align: center;
+                                  padding: 0 !important;
+                                }
+                                .cognito .c-action {
+                                  float: none;
+                                }
+                                </style>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+          </div><!-- col / end -->
+
+        </div><!-- end / row -->
+        </div><!-- end / container -->
+
+        {% include "partials/footer.html" %}
+
+        </main><!-- end / Main container -->
+
+        {% include "partials/javascript.html" %}
+
+        <script>
+        $(document).ready(function(){
+
+          // Waypoints for animations on this page specifcally.
+          $('section.blurb').waypoint(function(direction) {
+            if (direction === "down") {
+              $('section.blurb').find('img').addClass('animated').addClass('fadeInLeft');
+            }
+          }, {
+            offset: '100%' // Offset 100% is top of element
+          });
+
+          $('.project-card').waypoint(function(direction) {
+            if (direction === "down") {
+              $(this.element).addClass('animated').addClass('fadeIn');
+            }
+          }, {
+            offset: '100%' // Offset 100% is top of element
+          });
+
+          var waitForEl = function(selector, callback) {
+            if (jQuery(selector).length) {
+              callback();
+            } else {
+              setTimeout(function() {
+                waitForEl(selector, callback);
+              }, 100);
+            }
+          };
+
+          waitForEl("a:contains('Powered by Cognito Forms.')", function() {
+            // work the magic
+            $(".loader").remove();
+            $("a:contains('Powered by Cognito Forms.')").remove();
+          });
+
+        });
+        </script>
+
+    </body>
+
+</html>

@@ -24,24 +24,25 @@
 
         <main role="main"><!-- Main view container -->
 
-        <section class="hero small">
-            <!-- Animated layers -->
-            <div class="gfx-layer one animated-hero heroFadeInLeft"><!-- Purple layer --></div>
-            <div class="overlay"></div><!-- Dark overlay to control background -->
-            <div class="gfx-layer two animated-hero heroFadeInRight"><!-- Orange layer --></div>
-            <div class="gfx-layer three animated-hero heroFadeInRight"><!-- Orange layer #2 --></div>
+            <section class="hero small">
+                <!-- Animated layers -->
+                <div class="gfx-layer one animated-hero heroFadeInLeft"><!-- Purple layer --></div>
+                <div class="overlay"></div><!-- Dark overlay to control background -->
+                <div class="gfx-layer two animated-hero heroFadeInRight"><!-- Orange layer --></div>
+                <div class="gfx-layer three animated-hero heroFadeInRight"><!-- Orange layer #2 --></div>
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h1>Blog</h1>
-                        <p>Case studies, written tutorials, project logs, and other dev topics.</p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1>Blog</h1>
+                            <p>Case studies, written tutorials, project logs, and other dev topics.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="search-area">
+            {% comment %} If all types of posts exist, show search area {% endcomment %}
+            <section class="search-area">
                 <div class="container">
                     <div class="row">
 
@@ -51,9 +52,19 @@
                                 <div class="card-body text-center">
                                     <label class="d-inline mr-3"><b>Filter by Posts: </b></label>
                                     <a href="{% url 'blog' %}" class="btn ghost-blue {% if not request.GET.tag %}active{% endif %}">All Posts</a>
+                                    
+                                    {% if tutorials_available %}
                                     <a href="{% url 'blog' %}?tag=tutorials" class="btn ghost-blue {% if request.GET.tag == 'tutorials' %}active{% endif %}">Tutorials</a>
+                                    {% endif %}
+                                    
+                                    {% if casestudies_available %}
                                     <a href="{% url 'blog' %}?tag=case-studies" class="btn ghost-blue {% if request.GET.tag == 'case-studies' %}active{% endif %}">Case Studies</a>
+                                    {% endif %}
+                                    
+                                    {% if projectlogs_available %}
                                     <a href="{% url 'blog' %}?tag=project-logs" class="btn ghost-blue {% if request.GET.tag == 'project-logs' %}active{% endif %}">Project Logs</a>
+                                    {% endif %}
+                                    
                                 </div>
                             </div>
                         </div>

@@ -41,7 +41,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <ul class="menu-links">
         <li><a href="{% url 'projects' %}" {% if 'projects' in request.path %}class="active"{% endif %}>Projects</a></li>
         <li><a href="{% url 'blog' %}" {% if 'blog' in request.path  %}class="active"{% endif %}>Blog</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#contactModal" {% if 'contact' in request.path  %}class="active"{% endif %}>Contact</a></li>
+        <li><a href="{% url 'contact' %}" {% if 'contact' in request.path  %}class="active"{% endif %}>Contact</a></li>
     </ul>
     <div class="group">
         <h3>Recent Blog Posts</h3>
@@ -57,26 +57,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 </div>
 
-<!-- Contact Modal -->
-<!-- Modal -->
-<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="contactModalLabel">Contact</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Have a project in mind or have a web-related problem that needs solving? Get in touch.</p>
-        <!-- Cognito Form -->
-        <div class="cognito">
-        <script src="https://services.cognitoforms.com/s/5HMCbGbY4keR3vTHg86Yuw"></script>
-        <script>Cognito.load("forms", { id: "1" });</script>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- end / Partial / navigation -->

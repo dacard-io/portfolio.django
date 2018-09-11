@@ -25,6 +25,7 @@
 @import 'components/buttons';
 @import 'components/hero';
 @import 'components/cards';
+@import 'components/loader'; // Styles for loading CSS stuff
 
 // Include Pages
 @import 'pages/home';
@@ -32,6 +33,7 @@
 @import 'pages/post';
 @import 'pages/projects';
 @import 'pages/project';
+@import 'pages/contact';
 
 // Include Themes (Like admin, dark, etc. This would be for larger projects)
 

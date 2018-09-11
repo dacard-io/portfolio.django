@@ -1,5 +1,40 @@
-.page.post {
-	section.content {
+.page.contact {
+	section.contact-area {
+		margin-top: -4rem;
+
+		.card {
+
+			img {
+				max-width: 100%;
+			}
+			.card-body {
+				overflow: hidden;
+				padding: 0.5rem;
+			}
+
+			&.featured-card {
+				height: auto;
+				margin-bottom: 4rem;
+			}
+
+			&.small-card {
+				width: 100%;
+				height: 250px;
+				margin-bottom: 1rem;
+
+				.card-body {
+					height: 100%;
+				}
+
+				img {
+					height: 100%;
+					width: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+	section.blurb {
 		margin: 4rem 0;
 
 		p {
@@ -20,14 +55,12 @@
 				    font: normal normal normal 1.05em FontAwesome;
 					height: 1em;
 					width: 1em;
-					margin-right: 0.5rem;
+					margin-left: -1.5rem;
+				    margin-top: 3px;
+				    position: absolute;
 					color: $orange;
 				}
 			}
-		}
-		img {
-			max-width: 100%;
-			height: auto;
 		}
 	}
 }
@@ -36,7 +69,7 @@
 ////////////////////////////////////
 /////////////RESPONSIVE/////////////
 ////////////////////////////////////
-.page.post {
+.page.project {
 
 // XL breakpoint
 @media (max-width: $xl-breakpoint) {}

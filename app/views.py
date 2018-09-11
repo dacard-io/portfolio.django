@@ -20,7 +20,14 @@ def index(request):
 
 	context = {
 		'projects': projects,
-		'site_url': settings.SITE_URL
 	} # Ah context variables like Node to use in template. Cool
 	
+	return HttpResponse(template.render(context, request))
+
+
+def contact(request):
+	template = loader.get_template('contact.html')
+
+	context = {} # Empty context for now
+
 	return HttpResponse(template.render(context, request))

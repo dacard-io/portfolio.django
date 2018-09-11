@@ -31,7 +31,7 @@ class Project(models.Model):
 	enabled = models.BooleanField('enabled')
 	featured = models.BooleanField(default=False)
 
-	permalink = models.SlugField(max_length=40, unique=True, blank=True)
+	permalink = models.SlugField(max_length=255, unique=True, blank=True)
 
 	# A routine to show the thumbnail easily (Like in the admin panel)
 	def admin_thumbnail(self):

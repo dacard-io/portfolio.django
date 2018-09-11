@@ -73,8 +73,7 @@
                                 <!-- RoyalSlider Project Carousel -->
                                 <div id="projectCarousel" class="royalSlider rsDefault">
                                   {% for project_image in project_images %}
-                                  <a class="rsImg" data-rsw="400" data-rsh="500" data-rsbigimg="http://imt.boatwizard.com/images/1/17/89/6621789_20180219125028921_1_XLARGE.jpg" href="{{ site_url }}/{{ project_image.image }}">
-                                    <img width="96" height="72" class="rsTmb" src="https://imt.boatwizard.com/images/1/17/89/6621789_20180219125028921_1_MINI.jpg" alt="2010 82' VIKING CONVERTIBLE">
+                                  <a class="rsImg" data-rsw="400" data-rsh="500" data-rsbigimg="{{ site_url }}/{{ project_image.image }}" href="{{ site_url }}/{{ project_image.image }}">
                                   </a>
                                   {% endfor %}
                                 </div>

@@ -23,6 +23,7 @@ from filebrowser.sites import site # Filebrowser import
 
 urlpatterns = [
     url(r'^$', views.index, name='index'), # Leaving the url as
+    url(r'^contact/', views.contact, name='contact'),
     url(r'^manager/tinymce/', include('tinymce.urls')),
     url(r'^manager/', admin.site.urls),
     url(r'^manager/filebrowser/', include(site.urls)),
