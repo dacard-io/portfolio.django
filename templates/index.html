@@ -31,7 +31,7 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-10 col-lg-6">
                         <h1>Building meaningful web experiences.</h1>
                         <p>Hi, I’m David a web developer located in South Florida. I’m currently working with Advantage Services.</p>
                     </div>
@@ -44,7 +44,7 @@
                 <div class="row">
                     <!-- Service Card -->
                     <div class="col-12 col-md-4">
-                        <a href="{% url 'projects' %}?tag=web-app" class="card animated delay-short fadeInUp card-service-development mb-3">
+                        <a href="{% url 'projects' %}?tag=web" class="card animated delay-short fadeInUp card-service-development mb-3">
                           <div class="card-body">
                             <img class="svg" src="{% static 'assets/images/service-development.svg' %}" alt=""/>
                             <p class="card-title">Web Development</p>
@@ -122,11 +122,16 @@
         <section class="projects">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-lg-4 search-container"><h2>Featured Projects</h2></div>
-                    <div class="col-lg-4 search-container"><!-- Empty for layout --></div>
-                    <div class="col-12 col-lg-4 search-container text-center text-lg-right">
-                        <a class="btn ghost-blue" href="{% url 'projects' %}"><i class="fa fa-arrow-right"></i> View All Projects</a>
+
+                    <div class="col-12">
+                        <div class="row search-container">
+                            <div class="col-12 col-md"><h2>Featured Projects</h2></div>
+                            <div class="col-12 col-md text-md-right">
+                                <a class="btn ghost-blue" href="{% url 'projects' %}"><i class="fa fa-arrow-right"></i> View All Projects</a>
+                            </div>
+                        </div>
                     </div>
+                    
 
                     <!-- Projects begin -->
                     {% for project in projects %}

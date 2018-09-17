@@ -294,7 +294,14 @@
 @media (max-width: $xl-breakpoint) {}
 
 // LG breakpoint
-@media (max-width: $lg-breakpoint) {}
+@media (max-width: $lg-breakpoint) {
+	section.clients {
+		display: none;
+	}
+	section.projects {
+		
+	}
+}
 
 // MD breakpoint
 @media (max-width: $md-breakpoint) {}

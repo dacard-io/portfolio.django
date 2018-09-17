@@ -184,7 +184,22 @@
 @media (max-width: $xl-breakpoint) {}
 
 // LG breakpoint
-@media (max-width: $lg-breakpoint) {}
+@media (max-width: $lg-breakpoint) {
+	section.search-area {
+		.search-container {
+			display: none;
+		}
+	}
+
+	section.projects {
+		.project-card {
+			a.btn {
+				margin-left: 0;
+				float: right;
+			}
+		}
+	}
+}
 
 // MD breakpoint
 @media (max-width: $md-breakpoint) {}

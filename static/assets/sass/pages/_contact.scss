@@ -69,13 +69,17 @@
 ////////////////////////////////////
 /////////////RESPONSIVE/////////////
 ////////////////////////////////////
-.page.project {
+.page.contact {
 
 // XL breakpoint
 @media (max-width: $xl-breakpoint) {}
 
 // LG breakpoint
-@media (max-width: $lg-breakpoint) {}
+@media (max-width: $lg-breakpoint) {
+	section.contact-area {
+		margin-top: -2rem;
+	}
+}
 
 // MD breakpoint
 @media (max-width: $md-breakpoint) {}
