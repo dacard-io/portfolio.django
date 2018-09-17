@@ -79,6 +79,13 @@
 	section.contact-area {
 		margin-top: -2rem;
 	}
+	section.blurb {
+		ul li:before {
+			position: relative;
+			margin-left: 0;
+			margin-right: 1rem;
+		}
+	}
 }
 
 // MD breakpoint
