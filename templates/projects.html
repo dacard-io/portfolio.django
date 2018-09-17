@@ -65,15 +65,14 @@
                   <div class="col-12 col-lg-4">
                       <div class="card animated delay-short fadeInUp mb-1">
                         <div class="card-body">
-                          
                           <label><b>Filter by Project Type</b></label>
                           <select id="type-filter" class="form-control">
                               <option value="">All Projects</option>
-                              <option value="web-app">Web Apps</option>
-                              <option value="website">Websites</option>
-                              <option value="e-commerce">e-Commerce</option>
-                              <option value="android-app">Android Apps</option>
-                              <option value="extension">Plugins &amp; Extensions</option>
+                              <option value="web-app" {% if request.GET.tag == "web-app" %}selected{% endif %}>Web Apps</option>
+                              <option value="website" {% if request.GET.tag == "website" %}selected{% endif %}>Websites</option>
+                              <option value="e-commerce" {% if request.GET.tag == "e-commerce" %}selected{% endif %}>e-Commerce</option>
+                              <option value="android-app" {% if request.GET.tag == "android-app" %}selected{% endif %}>Android Apps</option>
+                              <option value="extension" {% if request.GET.tag == "extension" %}selected{% endif %}>Plugins &amp; Extensions</option>
                           </select>
                           
                         </div>
@@ -91,7 +90,7 @@
                 {% for project in projects %}
                 {% if project.enabled %}
                   <!-- Project Card -->
-                  <div class="card col-12 project-card" data-tags="{{ project.stack }}" data-type="web-app">
+                  <div class="card col-12 project-card" data-stack="{{ project.stack }}" data-tag="web-app">
                     <div class="card-body">
                       <div class="row">
                           <div class="col-12 col-md-4">
@@ -105,8 +104,6 @@
                                       {% if project.link %}
                                         <a class="btn ghost-blue" href="{{ project.link }}" target="_blank">Open Project</a>
                                       {% endif %}
-
-                                      <a class="project-tag" href="#"><i class="fa fa-tag"></i> {{ project.get_tag_display }}</a>
                                   </div>
                               </div>
                               <p class="project-description text-left">{{ project.description }}</p>
@@ -267,6 +264,12 @@
 
             //*** Type Filter
             $('#type-filter').on('change', function()  {
+              window.location.href = '//' + location.host + location.pathname + '?tag=' + $(this).val();  // Added specific host and path name so I don't keep appending the tag URL param
+            });
+
+
+            /* Implement later -- *
+            $('#type-filter').on('change', function()  {
                 checkReset();
                 //checkTags();
 
@@ -288,6 +291,7 @@
                     });
                 }
             });
+            */
 
             // On search start, check tags
             //checkTags();
