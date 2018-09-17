@@ -202,7 +202,19 @@
 }
 
 // MD breakpoint
-@media (max-width: $md-breakpoint) {}
+@media (max-width: $md-breakpoint) {
+	section.projects {
+		.project-card {
+			display: none;
+			.project-title {
+				text-align: center;
+			}
+			.project-stack {
+				text-align: center;
+			}
+		}
+	}
+}
 
 // SM breakpoint
 @media (max-width: $sm-breakpoint) {}

@@ -66,7 +66,23 @@
 @media (max-width: $lg-breakpoint) {}
 
 // MD breakpoint
-@media (max-width: $md-breakpoint) {}
+@media (max-width: $md-breakpoint) {
+	section.search-area {
+		label {
+			display: block !important;
+		}
+		a.btn {
+			margin-bottom: 0.5rem;
+		}
+	}
+	section.posts {
+		.post-card {
+			.post-title {
+			    font-size: 1.5em;
+			}
+		}
+	}
+}
 
 // SM breakpoint
 @media (max-width: $sm-breakpoint) {}
