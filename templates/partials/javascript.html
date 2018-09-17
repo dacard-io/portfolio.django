@@ -7,6 +7,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="{% static 'assets/js/vendor/bootstrap.min.js' %}"></script>
 <script src="{% static 'assets/js/plugins/jquery.waypoints.min.js' %}"></script>
+<!--<script src="{% static 'assets/js/plugins/background-blur.min.js' %}"></script>-->
 
 <!-- Custom JS Scripts -->
 <script src="{% static 'assets/js/main.js' %}"></script>
@@ -40,6 +41,15 @@ $(document).ready(function(){
     }, {
   		offset: '-1px' // Offset 1px from top of body
     });
+
+    // Background fade for hero
+    /*
+    $('.hero').backgroundBlur({
+      imageURL : '{% static "assets/images/hero-bg.jpg" %}',
+      blurAmount : 5,
+      imageClass : 'bg-blur'
+    });
+    */
 });
 </script>
 
