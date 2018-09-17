@@ -296,7 +296,7 @@
 // LG breakpoint
 @media (max-width: $lg-breakpoint) {
 	section.clients {
-		display: none;
+		display: none !important;
 	}
 	section.projects {
 		
@@ -304,7 +304,36 @@
 }
 
 // MD breakpoint
-@media (max-width: $md-breakpoint) {}
+@media (max-width: $md-breakpoint) {
+	section.hero {
+		p {
+			display: none;
+		}
+	}
+	section.services {
+		.card {
+			margin-bottom: 1rem;
+
+			.card-link {
+				opacity: 1;
+			}
+		}
+		.card:hover {
+			margin-top: 0;
+		}
+	}
+	section.blurb {
+		margin: 2rem 0;
+	}
+	section.projects {
+		.search-container {
+			border-bottom: none;
+		}
+		.project-card:hover {
+			box-shadow: none;
+		}
+	}
+}
 
 // SM breakpoint
 @media (max-width: $sm-breakpoint) {}
