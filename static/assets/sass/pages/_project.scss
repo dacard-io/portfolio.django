@@ -89,7 +89,13 @@
 @media (max-width: $lg-breakpoint) {}
 
 // MD breakpoint
-@media (max-width: $md-breakpoint) {}
+@media (max-width: $md-breakpoint) {
+	section.hero {
+		h2 {
+			font-size: 1.5em;
+		}
+	}
+}
 
 // SM breakpoint
 @media (max-width: $sm-breakpoint) {}
