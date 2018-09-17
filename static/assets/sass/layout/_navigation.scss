@@ -509,10 +509,10 @@ main {
 
 @media (max-width: 576px) {
 	.main-menu {
-		.blog-posts small {
+		ul.blog-posts small {
 			padding-left: 0;
 		}
-		.blog-posts p {
+		ul.blog-posts p {
 			padding-left: 0;
 		}
 	}
