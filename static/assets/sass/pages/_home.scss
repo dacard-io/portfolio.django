@@ -1,4 +1,26 @@
 .page.home {
+	section.hero {
+		background: none;
+
+		.gfx-layer.blurred-bg {
+			width: 100%;
+			background: url('../images/hero-bg.jpg');
+			background-attachment: fixed;
+			background-position: left center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			overflow: hidden;
+			animation: blurHero 1s normal;
+			animation-fill-mode: forwards; // To retain CSS properties after animation
+		}
+		@keyframes blurHero {
+		    0% { opacity: 0; filter: blur(0px); transform: scale(1); } // Using transforms to remove the soft blurred edges
+		    25% { opacity: 0.5; filter: blur(0px); transform: scale(1); }
+		    50% { opacity: 1; filter: blur(0px); transform: scale(1.025); }
+		    75% { opacity: 1; filter: blur(1px); transform: scale(1.05); }
+		    100% { opacity: 1; filter: blur(2px); transform: scale(1.1); }
+		}
+	}
 	section.services {
 		margin-top: -4rem;
 
