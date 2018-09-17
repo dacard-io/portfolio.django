@@ -323,11 +323,32 @@
 		}
 	}
 	section.blurb {
-		margin: 2rem 0;
+		margin-top: 3rem;
+		margin-bottom: 0rem;
 	}
 	section.projects {
+		margin-top: 3rem 0;
+
 		.search-container {
 			border-bottom: none;
+		}
+		.project-card {
+			.project-title {
+				text-align: center;
+			}
+			.project-stack {
+				text-align: center;
+				&:before {
+					margin-right: 0.5rem;
+					position: relative;
+				}
+			}
+			.project-links {
+				margin-top: 0;
+			}
+			.external-link {
+				display: none;
+			}
 		}
 		.project-card:hover {
 			box-shadow: none;

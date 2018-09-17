@@ -141,17 +141,19 @@
                       <div class="card-body">
                         <div class="row">
                             <div class="col-12 col-md-5">
-                                <img class="img-fluid" src="{{ project.thumbnail }}"/>
+                                <a href="{{ project.get_absolute_url }}">
+                                    <img class="img-fluid" src="{{ project.thumbnail }}"/>
+                                </a>
                             </div>
                             <div class="col-12 col-md-7 project-column">
-                                <p class="project-title"><b>{{ project.title }}</b></p>
+                                <a href="{{ project.get_absolute_url }}" class="project-title"><b>{{ project.title }}</b></a>
                                 <p class="project-description">{{ project.description }}</p>
                                 <p class="project-stack">{{ project.stack }}</p>
                                 <div class="row project-links">
                                     <div class="col-12 text-center">
                                         <a class="btn ghost-blue" href="{{ project.get_absolute_url }}"><i class="fa fa-caret-right"></i>&nbsp;&nbsp;About Project</a>
                                         {% if project.link %}
-                                        <a href="{{ project.link }}" target="_blank" class="btn ghost-blue"><i class="fa fa-link"></i>&nbsp;&nbsp;Open Project</a>
+                                        <a href="{{ project.link }}" class="external-link" target="_blank" class="btn ghost-blue"><i class="fa fa-link"></i>&nbsp;&nbsp;Open Project</a>
                                         {% endif %}
                                     </div>
                                 </div>
