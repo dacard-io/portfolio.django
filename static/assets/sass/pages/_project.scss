@@ -101,7 +101,19 @@
 }
 
 // SM breakpoint
-@media (max-width: $sm-breakpoint) {}
+@media (max-width: $sm-breakpoint) {
+	section.blurb {
+		ul {
+			li {
+				&:before {
+					position: relative;
+					margin-left: 0;
+					margin-right: 1rem;
+				}
+			}
+		}
+	}
+}
 
 // XS  breakpoint
 @media (max-width: $xs-breakpoint) {}
