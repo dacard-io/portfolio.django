@@ -110,6 +110,11 @@
 				font-size: 1.5em;
 				//font-weight: bold;
 				color: $blue;
+
+				&:hover {
+					text-decoration: none;
+					color: #183c8a;
+				}
 			}
 			.project-description {
 				font-size: 1.15em;
