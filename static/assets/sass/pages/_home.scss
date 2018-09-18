@@ -322,6 +322,11 @@
 
 // LG breakpoint
 @media (max-width: $lg-breakpoint) {
+	section.hero {
+		.gfx-layer.blurred-bg {
+			background-attachment: scroll;
+		}
+	}
 	section.clients {
 		display: none !important;
 	}
