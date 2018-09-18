@@ -87,7 +87,7 @@
                         <p>I use a variety of languages, frameworks and solutions to give clients not just an online presence, but a powerful and memorable product to be proud of.</p>
                     </div>
                     <div class="col-12 col-md-6">
-                        <img src="{% static 'assets/images/tech.png' %}" class="img-fluid" alt="Thumbnail">
+                        <img src="{% static 'assets/images/tech.jpg' %}" class="img-fluid" alt="Thumbnail">
                     </div>
                 </div>
             </div>
@@ -154,7 +154,7 @@
                                     <div class="col-12 text-center">
                                         <a class="btn ghost-blue" href="{{ project.get_absolute_url }}"><i class="fa fa-caret-right"></i>&nbsp;&nbsp;About Project</a>
                                         {% if project.link %}
-                                        <a href="{{ project.link }}" target="_blank" class="btn ghost-blue"><i class="fa fa-link external-link"></i>&nbsp;&nbsp;Open Project</a>
+                                        <a href="{{ project.link }}" target="_blank" class="btn ghost-blue external-link"><i class="fa fa-link"></i>&nbsp;&nbsp;Open Project</a>
                                         {% endif %}
                                     </div>
                                 </div>
